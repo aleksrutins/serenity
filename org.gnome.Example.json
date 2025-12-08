@@ -1,0 +1,68 @@
+{
+    "id" : "org.gnome.Example",
+    "runtime" : "org.freedesktop.Platform",
+    "runtime-version" : "23.08",
+    "sdk" : "org.freedesktop.Sdk",
+    "command" : "serenity-test",
+    "finish-args" : [
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+    	{
+    	    "name": "catch2",
+    	    "builddir": true,
+    	    "buildsystem": "meson",
+    	    "sources": [
+    	        {
+    	            "type": "git",
+    	            "url": "https://github.com/catchorg/Catch2.git",
+    	            "tag": "v3.11.0"
+    	        }
+    	    ]
+    	},
+	{
+	    "name": "SDL",
+	    "builddir": true,
+	    "buildsystem": "cmake",
+	    "sources": [
+	        {
+	            "type": "git",
+	            "url": "https://github.com/libsdl-org/SDL.git",
+	            "tag": "release-3.2.28"
+	        }
+            ]
+        },
+        {
+            "name" : "sup",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://git.sr.ht/~aleksrutins/sup"
+                }
+            ]
+        },
+        {
+            "name" : "serenity",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "file:///home/aleks/Projects"
+                }
+            ]
+        }
+    ]
+}
