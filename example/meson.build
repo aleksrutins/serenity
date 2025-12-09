@@ -1,0 +1,1 @@
+executable('serenity-example', 'main.cpp', dependencies : [serenity_dep], install: true)

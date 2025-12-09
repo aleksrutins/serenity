@@ -9,4 +9,6 @@ project('serenity', ['cpp', 'c'],
 
 
 subdir('src')
+subdir('2d')
 
+subdir('example')
