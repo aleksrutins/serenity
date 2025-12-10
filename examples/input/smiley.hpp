@@ -12,7 +12,7 @@ using namespace serenity::graphics;
 using namespace serenity::twod;
 using namespace serenity::input;
 
-#define SPEED 10
+#define SPEED 5
 
 class Smiley : public Entity {
 	SDL_Texture *tex;
@@ -38,6 +38,9 @@ public:
 			if(k[SDL_SCANCODE_D]) x += SPEED;
 
 			if(k[SDL_SCANCODE_Q]) quit = true;
+
+			actX = lerp(actX, x, 0.025);
+	    		actY = lerp(actY, y, 0.025);
 	    	});
 
 		new CustomRender(this, [this](Renderer *r) {
@@ -45,9 +48,6 @@ public:
 			auto p = r->findChild<Painter>();
 			tex = p->loadImage(SMILEY_PATH);
 	    	}, [this](Renderer *r) {
-	    		actX = lerp(actX, x, 0.0001);
-	    		actY = lerp(actY, y, 0.0001);
-
 	    		auto p = r->findChild<Painter>();
 	    		auto target = rect(p);
 			p->draw(tex, &target);

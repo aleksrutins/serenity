@@ -24,7 +24,7 @@ int main() {
     auto r = new Renderer(&g, "Serenity Input Example");
     new Painter(r);
 
-    g.findChild<TimerSystem>()->start<60>();
+    g.findChild<TimerSystem>()->start<120>();
 
     r->run();
 

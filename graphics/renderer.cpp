@@ -14,6 +14,8 @@ void Renderer::run() {
     if(!ren) throw 1;
     manage([this](){SDL_DestroyRenderer(ren);});
 
+    SDL_SetRenderVSync(ren, SDL_RENDERER_VSYNC_ADAPTIVE);
+
     auto g = findParent<Game>();
 
     for(auto e : g->children<Entity>()) e->init(this);
