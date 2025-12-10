@@ -17,6 +17,7 @@ public:
 
     inline auto renderer() {return ren;}
     void run();
+    void quit();
 };
 
 }

@@ -29,4 +29,8 @@ void Renderer::run() {
     }
 }
 
+void Renderer::quit() {
+    SDL_Quit();
+}
+
 }

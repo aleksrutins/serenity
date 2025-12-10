@@ -18,15 +18,6 @@ auto Painter::loadImage(const char *path) -> SDL_Texture* {
     return tex;
 }
 
-auto Painter::rectangle(float x, float y, float w, float h) -> SDL_FRect {
-    SDL_FRect rect;
-    rect.x = x;
-    rect.y = y;
-    rect.w = w;
-    rect.h = h;
-    return rect;
-}
-
 void Painter::draw(SDL_Texture* tex, const SDL_FRect *dest) {
     auto r = dynamic_cast<Renderer*>(parent());
     if(!r) return;

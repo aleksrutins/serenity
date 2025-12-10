@@ -22,7 +22,10 @@ sub launch_example {
 	}
 }
 
-my %examples = ('Lettuce' => 'serenity-example-lettuce');
+my %examples = qw(
+	Lettuce serenity-example-lettuce
+	Input serenity-example-input
+);
 
 
 # Create a new application

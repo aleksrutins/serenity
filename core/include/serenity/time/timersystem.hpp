@@ -39,7 +39,7 @@ class TimerSystem : public Sup {
 public:
 	TimerSystem(Sup *parent) : Sup(parent) {}
 
-	~TimerSystem() {
+	virtual ~TimerSystem() {
 		if(!exit) stop();
 	}
 
