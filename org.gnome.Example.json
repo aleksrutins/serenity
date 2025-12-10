@@ -1,11 +1,12 @@
 {
     "id" : "com.farthergate.serenity.Example",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "49",
+    "runtime-version" : "48",
     "sdk" : "org.gnome.Sdk",
     "command" : "serenity-example-launcher",
     "finish-args" : [
-  	"--socket=x11",
+  	"--socket=wayland",
+  	"--socket=fallback-x11",
   	"--share=ipc",
   	"--device=dri",
   	"--socket=pulseaudio"
