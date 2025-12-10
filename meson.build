@@ -10,3 +10,4 @@ subdir('2d')
 subdir('input')
 
 subdir('examples')
+subdir('example-launcher')
