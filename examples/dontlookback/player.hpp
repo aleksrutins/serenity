@@ -1,4 +1,6 @@
 #pragma once
+
+#include "collectible.hpp"
 #include <serenity/core.hpp>
 #include <serenity/2d.hpp>
 #include <serenity/input.hpp>
@@ -13,6 +15,7 @@ using namespace serenity::twod;
 using namespace serenity::input;
 
 class Player : public Entity {
+	friend class Collectible;
 	float speed = 4;
 public:
 	Player(Game *g, Spritesheet *sprites) : Entity(g, "smiley") {
@@ -30,6 +33,19 @@ public:
 			if(k[SDL_SCANCODE_D]) tr->translate(speed, 0);
 
 			if(k[SDL_SCANCODE_Q]) findParent<Game>()->findChild<Renderer>()->quit();
+
+			auto collectibles = findParent<Game>()->children<Collectible>(true);
+			for (auto c : collectibles) {
+				auto cbox = c->findChild<CollisionBox>();
+				if(box->rect().isZero() || cbox->rect().isZero()) return;
+				if(box->overlaps(cbox)) {
+					speed += .2;
+					ph->jumpSpeed += .2;
+					cout << "[collectible] " << speed << endl;
+					c->parent()->remove(c);
+				}
+			}
+
 	    	});
 	}
 };

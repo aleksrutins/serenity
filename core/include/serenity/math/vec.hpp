@@ -1,5 +1,6 @@
 #pragma once
 #include <algorithm>
+#include <iostream>
 #include "../util/_vec.internal.hpp"
 
 namespace serenity {
@@ -35,6 +36,11 @@ struct Vec {
 	VEC_BINOP_V(/)
 	VEC_BINOP_N(/)
 
+	bool isZero() {
+		using namespace std;
+		return all_of(begin(components), end(components), [](T v){return v == 0;});
+	}
+
 	template <typename C>
 	operator Vec<len, C>() {
 		Vec<len, C> res;
@@ -56,6 +62,16 @@ VEC_BINOP_S_SIMPLE(*)
 VEC_BINOP_S_ELWISE(/)
 
 }
+}
+
+template <unsigned int len, typename T>
+std::ostream &std::operator<<(std::ostream &os, serenity::math::Vec<len, T> v) {
+	os << "<";
+	for(unsigned int i = 0; i < len; i++) {
+		os << v[i];
+		if(i < len-1) os << ", ";
+	}
+	return os << ">";
 }
 
 #include "../util/_vec.internal.un.hpp"
