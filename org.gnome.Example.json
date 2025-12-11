@@ -115,6 +115,18 @@
             ]
         },
         {
+	    "name": "SDL_image",
+	    "builddir": true,
+	    "buildsystem": "cmake",
+	    "sources": [
+	        {
+	            "type": "git",
+	            "url": "https://github.com/libsdl-org/SDL_image.git",
+	            "tag": "release-3.2.4"
+	        }
+            ]
+        },
+        {
 	    "name": "perl-libs",
 	    "buildsystem": "simple",
 	    "build-commands": [

@@ -4,6 +4,7 @@ deps = [
 	dependency('sup'),
 	dependency('sdl3'),
 	dependency('sdl3-ttf'),
+	dependency('sdl3-image'),
 	serenity_dep,
 	serenity_graphics_dep
 ]

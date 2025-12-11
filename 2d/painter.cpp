@@ -1,5 +1,9 @@
 #include <serenity/2d/painter.hpp>
 
+#include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
+
+using namespace std;
 using namespace serenity;
 using namespace serenity::graphics;
 
@@ -10,10 +14,8 @@ Painter::Painter(Renderer *r)
 {}
 
 auto Painter::loadImage(const char *path) -> SDL_Texture* {
-    auto surface = SDL_LoadBMP(path);
-    if(!surface) return nullptr;
-    auto tex = SDL_CreateTextureFromSurface(dynamic_cast<Renderer*>(parent())->renderer(), surface);
-    SDL_DestroySurface(surface);
+    auto tex = IMG_LoadTexture(dynamic_cast<Renderer*>(parent())->renderer(), path);
+    if(!tex) return nullptr;
     manage([tex](){SDL_DestroyTexture(tex);});
     return tex;
 }
