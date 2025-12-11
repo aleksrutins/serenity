@@ -30,6 +30,11 @@ int main() {
 
     cam->follow(p, 0.01);
 
+    auto ground = new Entity(&g);
+    sprites->load(ground, vec2(0, 0));
+    new Transform(ground, vec2(0, 50));
+    new CollisionBox(ground, CollisionBox::DoNotAvoid);
+
     auto r = new Renderer(&g, "Don't Look Back", WIDTH, HEIGHT);
     new Painter(r);
 

@@ -15,6 +15,7 @@ serenity_2d = library('serenity-2d', [
 	'sprite.cpp',
 	'spritesheet.cpp',
 	'collisionbox.cpp',
+	'platformerphysics.cpp',
 ], include_directories: inc, dependencies: deps, install: true)
 serenity_2d_dep = declare_dependency(link_with: serenity_2d, dependencies: deps, include_directories: inc)
 

@@ -5,3 +5,4 @@
 #include <serenity/2d/sprite.hpp>
 #include <serenity/2d/spritesheet.hpp>
 #include <serenity/2d/collisionbox.hpp>
+#include <serenity/2d/platformerphysics.hpp>

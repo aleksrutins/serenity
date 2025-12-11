@@ -16,18 +16,20 @@ class Player : public Entity {
 	float speed = 4;
 public:
 	Player(Game *g, Spritesheet *sprites) : Entity(g, "smiley") {
+		sprites->load(this, vec2(0, 5));
 		auto tr = new Transform(this);
-		new OnTick(this, OnTick::none, [this, tr](TimerSystem *) {
+		auto box = new CollisionBox(this, CollisionBox::DoNotAvoid);
+		auto ph = new PlatformerPhysics(this);
+
+		new OnTick(this, OnTick::none, [this, tr, box, ph](TimerSystem *) {
 			auto k = keyboard::state();
 
-			if(k[SDL_SCANCODE_W]) tr->translate(0, -speed);
+			if(k[SDL_SCANCODE_W] && box->hasCollision()) ph->jump();
 			if(k[SDL_SCANCODE_A]) tr->translate(-speed, 0);
 			if(k[SDL_SCANCODE_S]) tr->translate(0, speed);
 			if(k[SDL_SCANCODE_D]) tr->translate(speed, 0);
 
 			if(k[SDL_SCANCODE_Q]) findParent<Game>()->findChild<Renderer>()->quit();
 	    	});
-
-	    	sprites->load(this, vec2(0, 5));
 	}
 };
