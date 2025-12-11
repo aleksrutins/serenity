@@ -2,6 +2,7 @@
 use Glib::IO;
 use Glib::Object::Introspection;
 use Hash::Ordered;
+use POSIX::RT::Spawn;
 
 Glib::Object::Introspection->setup(
   basename => 'Gtk',
@@ -13,20 +14,10 @@ Glib::Object::Introspection->setup(
   version => '1',
   package => 'Adwaita');
 
-sub launch_example {
-	my ($cmd) = @_;
-	my $pid = fork;
-	die "failed to fork" unless defined $pid;
-
-	if($pid == 0) {
-		# child
-		exec($cmd) or print STDERR "Could not exec $cmd";
-	}
-}
-
 my $examples = Hash::Ordered->new(
 	Lettuce => "serenity-example-lettuce",
-	Input => "serenity-example-input"
+	Input => "serenity-example-input",
+	Camera => "serenity-example-camera"
 );
 
 
@@ -50,7 +41,7 @@ $app->signal_connect(
     foreach my $example ($examples->keys) {
 	    my $btn = Gtk4::Button->new_with_label($example);
 	    # … which closes the window when clicked
-	    $btn->signal_connect(clicked => sub { launch_example($examples->get($example)); });
+	    $btn->signal_connect(clicked => sub { spawn $examples->get($example); });
 
 	    $box->append($btn);
     }

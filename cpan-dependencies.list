@@ -1,1 +1,1 @@
-Glib::Object::Introspection Glib::IO Hash::Ordered
+Glib::Object::Introspection Glib::IO Hash::Ordered POSIX::RT::Spawn

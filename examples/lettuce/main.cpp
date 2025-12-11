@@ -27,9 +27,9 @@ int main() {
 
     SDL_Texture *tex;
 
-    new CustomRender(new Entity(&g, "lettuce"), [&](Renderer *r) {
+    new CustomRender(new Entity(&g, "lettuce"), [&](Renderer *) {
         tex = p->loadImage(LETTUCE_PATH);
-    }, [&](Renderer *r) {
+    }, [&](Renderer *) {
         p->draw(tex, nullptr);
     });
 

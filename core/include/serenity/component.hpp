@@ -18,10 +18,10 @@ protected:
 	}
 
 public:
-	Component(Entity *parent) : Sup(parent) {}
+	Component(Sup *parent) : Sup(parent) {}
 
-	virtual void init(Sup *) = 0;
-	virtual void update(Sup *) = 0;
+	virtual void init(Sup *) {};
+	virtual void update(Sup *) {};
 };
 
 }

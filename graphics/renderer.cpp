@@ -2,6 +2,7 @@
 #include <serenity/graphics/renderer.hpp>
 
 using namespace serenity;
+using namespace serenity::time;
 
 namespace serenity::graphics {
 
@@ -31,8 +32,11 @@ void Renderer::run() {
 }
 
 void Renderer::quit() {
+    for(auto timer : findParent<Game>()->children<TimerSystem>()) {
+        timer->stop();
+    }
+
     _quit = true;
-    SDL_Quit();
 }
 
 }

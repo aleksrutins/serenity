@@ -50,7 +50,7 @@ public:
 
 	void stop() {
 		exit = true;
-		execution_thread.join();
+		execution_thread.detach();
 	}
 
 

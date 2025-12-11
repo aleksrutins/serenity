@@ -19,9 +19,13 @@ int main() {
 
     new TimerSystem(&g);
 
-    new Smiley(&g);
+    auto cam = new Camera(&g);
 
-    auto r = new Renderer(&g, "Serenity Input Example");
+    auto s = new Smiley(&g);
+
+    //cam->follow(s, 0.001);
+
+    auto r = new Renderer(&g, "Serenity Camera Example");
     new Painter(r);
 
     g.findChild<TimerSystem>()->start<120>();

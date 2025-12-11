@@ -6,9 +6,9 @@ namespace serenity {
 class Scene;
 
 class Entity : public Sup {
-	std::string _name;
+	std::optional<std::string> _name;
 public:
-	Entity(Scene *parent, std::string name);
+	Entity(Scene *parent, std::optional<std::string> name = std::nullopt);
 
 	void init(Sup *);
 	void update(Sup *);

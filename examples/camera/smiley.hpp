@@ -2,6 +2,7 @@
 #include <serenity/core.hpp>
 #include <serenity/2d.hpp>
 #include <serenity/input.hpp>
+#include <iostream>
 
 using namespace std;
 using namespace serenity;
@@ -14,35 +15,22 @@ using namespace serenity::input;
 #define SPEED 5
 
 class Smiley : public Entity {
-	SDL_Texture *tex;
-
-	float goX = 0;
-	float goY = 0;
 	float &x() {return findChild<Transform>()->position[math::x];};
 	float &y() {return findChild<Transform>()->position[math::y];};
-
-	bool quit = false;
 public:
 	Smiley(Game *g) : Entity(g, "smiley") {
 		new Transform(this);
-
 		new OnTick(this, OnTick::none, [this](TimerSystem *) {
 			auto k = keyboard::state();
 
-			if(k[SDL_SCANCODE_W]) goY -= SPEED;
-			if(k[SDL_SCANCODE_A]) goX -= SPEED;
-			if(k[SDL_SCANCODE_S]) goY += SPEED;
-			if(k[SDL_SCANCODE_D]) goX += SPEED;
+			if(k[SDL_SCANCODE_W]) y() -= SPEED;
+			if(k[SDL_SCANCODE_A]) x() -= SPEED;
+			if(k[SDL_SCANCODE_S]) y() += SPEED;
+			if(k[SDL_SCANCODE_D]) x() += SPEED;
 
-			if(k[SDL_SCANCODE_Q]) {
-				findParent<Game>()->findChild<Renderer>()->quit();
-				return;
-			}
-
-			x() = lerp(x(), goX, 0.025);
-	    		y() = lerp(y(), goY, 0.025);
+			if(k[SDL_SCANCODE_Q]) findParent<Game>()->findChild<Renderer>()->quit();
 	    	});
 
-		new Sprite(this, SMILEY_PATH, vec2(32, 32));
+	    	new Sprite(this, SMILEY_PATH, (float[]){32, 32});
 	}
 };

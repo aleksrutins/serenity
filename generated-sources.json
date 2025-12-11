@@ -1,15 +1,15 @@
 [
    {
-      "dest": "perl-libs/ExtUtils-Depends",
-      "sha256": "02b9a46450050ce19b325b23e46bb4ec644229d7f2d95044f67a86d8efacdc29",
-      "type": "archive",
-      "url": "https://cpan.metacpan.org/authors/id/E/ET/ETJ/ExtUtils-Depends-0.8002.tar.gz"
-   },
-   {
       "dest": "perl-libs/ExtUtils-PkgConfig",
       "sha256": "bbeaced995d7d8d10cfc51a3a5a66da41ceb2bc04fedcab50e10e6300e801c6e",
       "type": "archive",
       "url": "https://cpan.metacpan.org/authors/id/X/XA/XAOC/ExtUtils-PkgConfig-1.16.tar.gz"
+   },
+   {
+      "dest": "perl-libs/ExtUtils-Depends",
+      "sha256": "02b9a46450050ce19b325b23e46bb4ec644229d7f2d95044f67a86d8efacdc29",
+      "type": "archive",
+      "url": "https://cpan.metacpan.org/authors/id/E/ET/ETJ/ExtUtils-Depends-0.8002.tar.gz"
    },
    {
       "dest": "perl-libs/Glib",
@@ -36,6 +36,18 @@
       "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Hash-Ordered-0.014.tar.gz"
    },
    {
+      "dest": "perl-libs/Devel-CheckLib",
+      "sha256": "869d38c258e646dcef676609f0dd7ca90f085f56cf6fd7001b019a5d5b831fca",
+      "type": "archive",
+      "url": "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.16.tar.gz"
+   },
+   {
+      "dest": "perl-libs/POSIX-RT-Spawn",
+      "sha256": "991ffb19a7c58ad0926a1ab51a66bb1020650c0e7ea2e3a3be5eb3a5303fbf80",
+      "type": "archive",
+      "url": "https://cpan.metacpan.org/authors/id/G/GR/GRAY/POSIX-RT-Spawn-0.13.tar.gz"
+   },
+   {
       "commands": [
          "set -e",
          "function make_install {",
@@ -50,12 +62,14 @@
          "        exit 1",
          "    fi",
          "}",
-         "(make_install perl-libs/ExtUtils-Depends)",
          "(make_install perl-libs/ExtUtils-PkgConfig)",
+         "(make_install perl-libs/ExtUtils-Depends)",
          "(make_install perl-libs/Glib)",
          "(make_install perl-libs/Glib-Object-Introspection)",
          "(make_install perl-libs/Glib-IO)",
-         "(make_install perl-libs/Hash-Ordered)"
+         "(make_install perl-libs/Hash-Ordered)",
+         "(make_install perl-libs/Devel-CheckLib)",
+         "(make_install perl-libs/POSIX-RT-Spawn)"
       ],
       "dest": "perl-libs",
       "dest-filename": "install.sh",
