@@ -11,10 +11,10 @@ class Sprite : public serenity::Component
 	const char *_image;
 	SDL_Texture *tex;
 
-	serenity::math::Vec2<float> _size;
+	serenity::math::Vec2f _size;
 
 public:
-	Sprite(serenity::Entity *e, const char *imageName, serenity::math::Vec2<float>);
+	Sprite(serenity::Entity *e, const char *imageName, serenity::math::Vec2f);
 
 	void init(Sup *);
 	void update(Sup *);

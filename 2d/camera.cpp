@@ -10,15 +10,14 @@ using namespace serenity::twod;
 namespace serenity {
 namespace twod {
 
-Camera::Camera(Scene *parent, optional<string> name)
+Camera::Camera(Scene *parent, Vec2f screenSize, optional<string> name)
     : Entity(parent, name)
 {
-    auto tr = new Transform(this);
+    auto tr = new Transform(this, -(screenSize/2));
 
-    new OnTick(this, OnTick::none, [tr, this](TimerSystem*) {
+    new OnTick(this, OnTick::none, [tr, screenSize, this](TimerSystem*) {
         if(following) {
-            tr->position[x] = lerp(tr->position[x], following->position[x], lerpFactor);
-            tr->position[y] = lerp(tr->position[y], following->position[y], lerpFactor);
+            tr->position = lerp(tr->position, following->position - (screenSize/2), lerpFactor);
         }
     });
 }

@@ -7,7 +7,7 @@ using namespace serenity::time;
 namespace serenity::graphics {
 
 void Renderer::run() {
-    win = SDL_CreateWindow(title, 640, 480, 0);
+    win = SDL_CreateWindow(title, width, height, 0);
     if(!win) throw 1;
     manage([this](){SDL_DestroyWindow(win);});
 

@@ -15,9 +15,9 @@ class Transform : public serenity::Component
 		return nullptr;
 	};
 public:
-	Transform(serenity::Entity *e) : Component(e) {}
+	serenity::math::Vec2f position;
 
-	serenity::math::Vec2<float> position;
+	Transform(serenity::Entity *e, decltype(position) initialPos = serenity::math::vec2(0, 0)) : Component(e), position(initialPos) {}
 
 	auto screenPosition() {return screenPosition(cam());};
 	auto screenPosition(Camera *) -> decltype(position);

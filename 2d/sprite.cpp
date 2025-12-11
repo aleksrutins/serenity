@@ -10,7 +10,7 @@ using namespace serenity::math;
 namespace serenity {
 namespace twod {
 
-Sprite::Sprite(Entity *e, const char *image, Vec2<float> size)
+Sprite::Sprite(Entity *e, const char *image, Vec2f size)
     : Component(e)
     , _image(image)
     , _size(size)

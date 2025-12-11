@@ -18,7 +18,7 @@ struct Vec {
 		return components[i];
 	}
 
-	Vec<len, T> operator+(Vec<len, T> other) {
+	Vec<len, T> operator+(Vec<len, T> other) const {
 		Vec<len, T> res;
 		for(unsigned int i = 0; i < len; i++) {
 			res[i] = components[i] + other[i];
@@ -26,10 +26,50 @@ struct Vec {
 		return res;
 	}
 
-	Vec<len, T> operator-(Vec<len, T> other) {
+	Vec<len, T> operator+(T other) const {
+		Vec<len, T> res;
+		for(unsigned int i = 0; i < len; i++) {
+			res[i] = components[i] + other;
+		}
+		return res;
+	}
+
+	Vec<len, T> operator-(Vec<len, T> other) const {
 		Vec<len, T> res;
 		for(unsigned int i = 0; i < len; i++) {
 			res[i] = components[i] - other[i];
+		}
+		return res;
+	}
+
+	Vec<len, T> operator-(T other) const {
+		Vec<len, T> res;
+		for(unsigned int i = 0; i < len; i++) {
+			res[i] = components[i] - other;
+		}
+		return res;
+	}
+
+	Vec<len, T> operator-() const {
+		Vec<len, T> res;
+		for(unsigned int i = 0; i < len; i++) {
+			res[i] = 0 - components[i];
+		}
+		return res;
+	}
+
+	Vec<len, T> operator*(T coeff) const {
+		Vec<len, T> res;
+		for(unsigned int i = 0; i < len; i++) {
+			res[i] = components[i] * coeff;
+		}
+		return res;
+	}
+
+	Vec<len, T> operator/(T divisor) const {
+		Vec<len, T> res;
+		for(unsigned int i = 0; i < len; i++) {
+			res[i] = components[i] / divisor;
 		}
 		return res;
 	}
@@ -49,9 +89,40 @@ struct Vec {
 	};
 };
 
+template <unsigned int len, typename E>
+inline Vec<len, E> operator+(E other, Vec<len, E> self) {
+	return self + other;
+}
 
-template <typename T>
-using Vec2 = Vec<2, T>;
+template <unsigned int len, typename E>
+inline Vec<len, E> operator-(E other, Vec<len, E> self) {
+	return other + (-self);
+}
+
+template <unsigned int len, typename E>
+inline Vec<len, E> operator*(E coeff, Vec<len, E> self) {
+	return self * coeff;
+}
+
+template <unsigned int len, typename E>
+inline Vec<len, E> operator/(E dividend, Vec<len, E> self) {
+	Vec<len, E> res;
+	for(unsigned int i = 0; i < len; i++) {
+		res[i] = dividend / self[i];
+	}
+	return res;
+}
+
+#define __DEFINE_VEC_TYPES__(n) template <typename T> using Vec##n = Vec<n, T>; \
+	using Vec##n##i = Vec##n<int>; \
+	using Vec##n##f = Vec##n<float>; \
+	using Vec##n##d = Vec##n<double>; \
+	using Vec##n##u = Vec##n<unsigned int>;
+
+__DEFINE_VEC_TYPES__(2)
+__DEFINE_VEC_TYPES__(3)
+__DEFINE_VEC_TYPES__(4)
+
 template <typename T>
 inline Vec2<T> vec2(T x, T y) {
 	Vec2<T> res;
@@ -61,8 +132,6 @@ inline Vec2<T> vec2(T x, T y) {
 }
 
 template <typename T>
-using Vec3 = Vec<3, T>;
-template <typename T>
 inline Vec3<T> vec3(T x, T y, T z) {
 	Vec3<T> res;
 	res[math::x] = x;
@@ -71,8 +140,6 @@ inline Vec3<T> vec3(T x, T y, T z) {
 	return res;
 }
 
-template <typename T>
-using Vec4 = Vec<4, T>;
 template <typename T>
 inline Vec4<T> vec4(T x, T y, T z, T t) {
 	Vec4<T> res;
@@ -84,7 +151,7 @@ inline Vec4<T> vec4(T x, T y, T z, T t) {
 }
 
 template <typename T>
-inline auto lerp(T a, T b, double t) -> T {
+inline auto lerp(T a, T b, float t) -> T {
     return a + t * (b - a);
 }
 

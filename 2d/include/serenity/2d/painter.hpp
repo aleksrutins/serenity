@@ -17,7 +17,7 @@ inline auto rectangle(float x, float y, float w, float h) -> SDL_FRect {
     return rect;
 }
 
-inline auto rectangle(serenity::math::Vec2<float> pos, serenity::math::Vec2<float> size) -> SDL_FRect {
+inline auto rectangle(serenity::math::Vec2f pos, serenity::math::Vec2f size) -> SDL_FRect {
     using serenity::math::x;
     using serenity::math::y;
     return rectangle(pos[x], pos[y], size[x], size[y]);

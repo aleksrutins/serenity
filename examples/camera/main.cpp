@@ -14,18 +14,21 @@ using namespace serenity::graphics;
 using namespace serenity::twod;
 using namespace serenity::input;
 
+#define WIDTH 800
+#define HEIGHT 600
+
 int main() {
     Game g;
 
     new TimerSystem(&g);
 
-    auto cam = new Camera(&g);
+    auto cam = new Camera(&g, vec2(WIDTH, HEIGHT));
 
     auto s = new Smiley(&g);
 
-    //cam->follow(s, 0.001);
+    cam->follow(s, 0.01);
 
-    auto r = new Renderer(&g, "Serenity Camera Example");
+    auto r = new Renderer(&g, "Serenity Camera Example", WIDTH, HEIGHT);
     new Painter(r);
 
     g.findChild<TimerSystem>()->start<120>();

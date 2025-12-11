@@ -31,6 +31,6 @@ public:
 			if(k[SDL_SCANCODE_Q]) findParent<Game>()->findChild<Renderer>()->quit();
 	    	});
 
-	    	new Sprite(this, SMILEY_PATH, (float[]){32, 32});
+	    	new Sprite(this, SMILEY_PATH, vec2(32, 32));
 	}
 };
