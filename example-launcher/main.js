@@ -12,7 +12,8 @@ const examples = [
   ['Lettuce', 'serenity-example-lettuce'],
   ['Input', 'serenity-example-input'],
   ['Camera', 'serenity-example-camera'],
-  ["Don't Look Back", 'serenity-example-dontlookback']
+  ["Don't Look Back", 'serenity-example-dontlookback'],
+  ['Runtime', 'serenity-runtime-test']
 ]
 
 app.connect('activate', () => {

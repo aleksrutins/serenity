@@ -23,54 +23,15 @@
         "*.a"
     ],
     "modules" : [
-    	{
-    	    "name": "catch2",
-    	    "builddir": true,
-    	    "buildsystem": "meson",
-    	    "sources": [
-    	        {
-    	            "type": "git",
-    	            "url": "https://github.com/catchorg/Catch2.git",
-    	            "tag": "v3.11.0"
-    	        }
-    	    ]
-    	},
-	{
-	    "name": "SDL",
-	    "builddir": true,
-	    "buildsystem": "cmake",
-	    "sources": [
-	        {
-	            "type": "git",
-	            "url": "https://github.com/libsdl-org/SDL.git",
-	            "tag": "release-3.2.28"
-	        }
-            ]
-        },
-        {
-	    "name": "SDL_ttf",
-	    "builddir": true,
-	    "buildsystem": "cmake",
-	    "sources": [
-	        {
-	            "type": "git",
-	            "url": "https://github.com/libsdl-org/SDL_ttf.git",
-	            "tag": "release-3.2.2"
-	        }
-            ]
-        },
-        {
-	    "name": "SDL_image",
-	    "builddir": true,
-	    "buildsystem": "cmake",
-	    "sources": [
-	        {
-	            "type": "git",
-	            "url": "https://github.com/libsdl-org/SDL_image.git",
-	            "tag": "release-3.2.4"
-	        }
-            ]
-        },
+    	"modules/SDL3.json",
+        "modules/SDL3_ttf.json",
+        "modules/SDL3_image.json",
+
+    	"modules/lua5.4/lua-5.4.json",
+    	"modules/sol2/sol2.json",
+
+    	"modules/catch2.json",
+
         {
             "name" : "sup",
             "builddir" : true,

@@ -1,0 +1,12 @@
+{
+    "name": "catch2",
+    "builddir": true,
+    "buildsystem": "meson",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/catchorg/Catch2.git",
+            "tag": "v3.11.0"
+        }
+    ]
+}

@@ -11,5 +11,7 @@ subdir('graphics')
 subdir('2d')
 subdir('input')
 
+subdir('runtime')
+
 subdir('examples')
 subdir('example-launcher')

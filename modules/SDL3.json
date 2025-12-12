@@ -1,0 +1,12 @@
+{
+    "name": "SDL3",
+    "builddir": true,
+    "buildsystem": "cmake",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/libsdl-org/SDL.git",
+            "tag": "release-3.2.28"
+        }
+    ]
+}

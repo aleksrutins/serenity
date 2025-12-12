@@ -29,7 +29,10 @@ public:
 
 			if(k[SDL_SCANCODE_W] && box->hasCollision()) ph->jump();
 			if(k[SDL_SCANCODE_A]) tr->translate(-speed, 0);
-			if(k[SDL_SCANCODE_S]) tr->translate(0, speed);
+			if(k[SDL_SCANCODE_S]) {
+				tr->translate(0, speed);
+				tr->delta = vec2(0, 0);
+			}
 			if(k[SDL_SCANCODE_D]) tr->translate(speed, 0);
 
 			if(k[SDL_SCANCODE_Q]) findParent<Game>()->findChild<Renderer>()->quit();
