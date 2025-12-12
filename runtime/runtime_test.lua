@@ -14,7 +14,7 @@ local e = Entity.new(g, "player")
 local tr = Transform.new(e, vec.vec2f(50, 50))
 sprites:load(e, vec.vec2i(0, 1))
 
-local r = Renderer.new(g, "Hello World", 800, 600)
+local r = Renderer.new(g, "Serenity Lua Runtime Example", 800, 600)
 Painter.new(r)
 
 OnTick.new(e, OnTick.none, function(t)
@@ -34,7 +34,9 @@ OnTick.new(e, OnTick.none, function(t)
 	if key('q') then
 		r:quit()
 	end
+end)
 
+OnTick.new(e2, OnTick.none, function(t)
 	tr2:position(math.lerp(tr2:position(), tr:position(), 0.01))
 end)
 
