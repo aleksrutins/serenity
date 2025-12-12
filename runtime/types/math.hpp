@@ -21,3 +21,11 @@ lua["vec"] = lua.create_table_with(
 	"add2f", [](Vec2f a, Vec2f b){return a + b;},
 	"sub2f", [](Vec2f a, Vec2f b){return a - b;}
 );
+
+lua["math"] = lua.create_table_with(
+	"lerp", overload(
+		static_cast<float(*)(float, float, float)>(lerp),
+		static_cast<Vec2f(*)(Vec2f, Vec2f, float)>(lerp),
+		static_cast<Vec4f(*)(Vec4f, Vec4f, float)>(lerp)
+	)
+);

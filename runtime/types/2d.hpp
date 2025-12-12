@@ -30,5 +30,13 @@ lua.new_usertype<twod::Sprite>("Sprite",
 
 lua.new_usertype<twod::Transform>("Transform",
     constructors<twod::Transform(Entity*, Vec2f)>(),
+    "translate", overload(
+    	static_cast<void(twod::Transform::*)(float, float)>(&twod::Transform::translate),
+	static_cast<void(twod::Transform::*)(Vec2f)>(&twod::Transform::translate)
+    ),
+    "position", overload(
+	static_cast<void(twod::Transform::*)(Vec2f)>(&twod::Transform::position),
+	static_cast<Vec2f(twod::Transform::*)()>(&twod::Transform::position)
+    ),
     base_classes, bases<Component, Sup>()
 );

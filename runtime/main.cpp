@@ -1,5 +1,6 @@
 #define SOL_ALL_SAFETIES_ON 1
 #include <serenity/core.hpp>
+#include <serenity/input.hpp>
 #include <serenity/graphics.hpp>
 #include <serenity/2d.hpp>
 #include <sol/sol.hpp>
