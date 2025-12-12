@@ -10,8 +10,8 @@
 		    "tag": "v3.3.0"
 		},
 		{
-			"type": "patch",
-			"path": "emptymacro_sol2.patch"
+		    "type": "patch",
+		    "path": "emptymacro_sol2.patch"
 		}
 	]
 }
