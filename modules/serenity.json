@@ -1,0 +1,11 @@
+{
+    "name" : "serenity",
+    "builddir" : true,
+    "buildsystem" : "meson",
+    "sources" : [
+        {
+            "type" : "git",
+            "url" : "https://git.sr.ht/~aleksrutins/serenity"
+        }
+    ]
+}

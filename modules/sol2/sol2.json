@@ -12,6 +12,10 @@
 		{
 		    "type": "patch",
 		    "path": "emptymacro_sol2.patch"
+		},
+		{
+			"type": "patch",
+			"path": "construct-fix.patch"
 		}
 	]
 }

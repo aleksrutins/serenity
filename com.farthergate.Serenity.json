@@ -1,0 +1,48 @@
+{
+    "id": "com.farthergate.Serenity",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "48",
+    "sdk": "org.gnome.Sdk",
+    "command": "serenity",
+    "extensions": [
+    	"org.freedesktop.Sdk.Extension.vala"
+    ],
+    "finish-args": [
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--share=ipc",
+        "--device=dri",
+        "--socket=pulseaudio"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        "modules/SDL3.json",
+        "modules/SDL3_ttf.json",
+        "modules/SDL3_image.json",
+        "modules/lua5.4/lua-5.4.json",
+        "modules/sol2/sol2.json",
+        "modules/catch2.json",
+        "modules/sup.json",
+        {
+            "name": "serenity",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.sr.ht/~aleksrutins/serenity"
+                }
+            ]
+        }
+    ]
+}
