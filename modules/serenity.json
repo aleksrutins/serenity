@@ -5,7 +5,7 @@
     "sources" : [
         {
             "type" : "git",
-            "url" : "https://git.sr.ht/~aleksrutins/serenity"
+            "url" : "https://git.farthergate.com/serenity.git"
         }
     ]
 }

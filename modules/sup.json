@@ -5,7 +5,7 @@
     "sources" : [
         {
             "type" : "git",
-            "url" : "https://git.sr.ht/~aleksrutins/sup"
+            "url" : "https://git.farthergate.com/sup.git"
         }
     ]
 }

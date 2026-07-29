@@ -25,7 +25,7 @@ void launch(string cmd) {
 }
 
 int main(string[] args) {
-    var app = new Adw.Application("com.farthergate.Serenity", DEFAULT_FLAGS);
+    var app = new Adw.Application("com.farthergate.Serenity.Devel", DEFAULT_FLAGS);
 
     app.activate.connect(() => {
         var wnd = new ApplicationWindow(app);
