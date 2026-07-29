@@ -30,7 +30,7 @@ public:
 			if(k[SDL_SCANCODE_W] && box->hasCollision()) ph->jump();
 			if(k[SDL_SCANCODE_A]) tr->translate(-speed, 0);
 			if(k[SDL_SCANCODE_S]) {
-				tr->translate(0, speed);
+				tr->translate(0, 1.5*ph->jumpSpeed);
 				tr->delta = vec2(0, 0);
 			}
 			if(k[SDL_SCANCODE_D]) tr->translate(speed, 0);
@@ -43,7 +43,7 @@ public:
 				if(box->rect().isZero() || cbox->rect().isZero()) return;
 				if(box->overlaps(cbox)) {
 					speed += .2;
-					ph->jumpSpeed += .2;
+					//ph->jumpSpeed += .2;
 					cout << "[collectible] " << speed << endl;
 					findParent<Game>()->findChild<Camera>()->follow(this, 0.005 * speed);
 					c->parent()->remove(c);
