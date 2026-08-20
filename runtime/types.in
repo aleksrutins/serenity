@@ -1,0 +1,3 @@
+#define NEW_WITH_PARENT factory new (s: Sup*)
+
+#include "types/core.in"

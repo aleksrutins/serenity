@@ -1,0 +1,29 @@
+Sup {}
+
+Game : Scene, Sup {}
+
+Entity : Sup {
+	overload new (s: Scene*, ?name: string) => ^;
+}
+
+Component : Sup {
+	NEW_WITH_PARENT => ^;
+}
+
+TimerSystem (time::TimerSystem) : Sup {
+	NEW_WITH_PARENT => ^;
+
+	start60 => ^start<60>;
+	start120 => ^start<120>;
+	stop => ^stop;
+}
+
+OnTick (time::OnTick) : Sup {
+	factory new (
+		e: Entity*,
+		init: std::function<void(time::TimerSystem*)>,
+		update: std::function<void(time::TimerSystem*)>
+	) => ^;
+
+	static none => @none;
+}

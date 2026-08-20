@@ -11,6 +11,7 @@ subdir('graphics')
 subdir('2d')
 subdir('input')
 
+subdir('bindgen')
 subdir('runtime')
 
 subdir('examples')
