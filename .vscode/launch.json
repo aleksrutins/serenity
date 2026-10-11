@@ -1,0 +1,124 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Debug serenity-runtime",
+            "target": "serenity-runtime",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug serenity-runtime"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Release serenity-runtime",
+            "target": "serenity-runtime",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release serenity-runtime"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Debug serenity-launcher",
+            "target": "serenity-launcher",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug serenity-launcher"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Release serenity-launcher",
+            "target": "serenity-launcher",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release serenity-launcher"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Debug serenity-example-camera",
+            "target": "serenity-example-camera",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug serenity-example-camera"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Release serenity-example-camera",
+            "target": "serenity-example-camera",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release serenity-example-camera"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Debug serenity-example-input",
+            "target": "serenity-example-input",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug serenity-example-input"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Release serenity-example-input",
+            "target": "serenity-example-input",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release serenity-example-input"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Debug serenity-example-dontlookback",
+            "target": "serenity-example-dontlookback",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug serenity-example-dontlookback"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Release serenity-example-dontlookback",
+            "target": "serenity-example-dontlookback",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release serenity-example-dontlookback"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Debug serenity-example-lettuce",
+            "target": "serenity-example-lettuce",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug serenity-example-lettuce"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:serenity}",
+            "name": "Release serenity-example-lettuce",
+            "target": "serenity-example-lettuce",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release serenity-example-lettuce"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+module CLua [system] {
+    header "Lua.h"
+    link "lua5.4"
+    export *
+}

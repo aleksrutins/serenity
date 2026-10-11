@@ -1,6 +1,0 @@
-#undef VEC_CMPOP
-#undef VEC_BINOP_V
-#undef VEC_BINOP_N
-#undef VEC_BINOP_S_SIMPLE
-#undef VEC_BINOP_S_ELWISE
-#undef VEC_UNOP
