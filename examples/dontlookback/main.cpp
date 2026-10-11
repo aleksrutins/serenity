@@ -27,7 +27,7 @@ int main() {
     auto cam = new Camera(&g, vec2(WIDTH, HEIGHT));
 
     auto sprites = Spritesheet::forScene(&g, TILEMAP_PATH, vec2(32, 32));
-
+e
     new Tile(&g, sprites, vec2(0, 50));
 
     auto p = new Player(&g, sprites);

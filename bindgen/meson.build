@@ -1,1 +1,0 @@
-bindgen = executable('serenity-bindgen', 'bindgen.cc', install: false)

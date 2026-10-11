@@ -1,0 +1,113 @@
+module(
+    name = "serenity",
+    version = "0.1.0",
+)
+
+bazel_dep(name = "rules_cc", version = "0.2.17")
+bazel_dep(name = "rules_foreign_cc", version = "0.15.1")
+
+register_toolchains("@rules_foreign_cc//toolchains:preinstalled_pkgconfig_toolchain")
+
+archive = use_repo_rule(
+    "@bazel_tools//tools/build_defs/repo:http.bzl",
+    "http_archive",
+)
+git = use_repo_rule(
+    "@bazel_tools//tools/build_defs/repo:git.bzl",
+    "git_repository",
+)
+
+archive(
+    name = "sdl3_src",
+    urls = ["https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.28.tar.gz"],
+    strip_prefix = "SDL-release-3.2.28",
+    build_file_content = "package(default_visibility = [\"//visibility:public\"])\nfilegroup(name = \"all\", srcs = glob([\"**\"]))",
+)
+archive(
+    name = "sdl3_ttf_src",
+    urls = ["https://github.com/libsdl-org/SDL_ttf/archive/refs/tags/release-3.2.2.tar.gz"],
+    strip_prefix = "SDL_ttf-release-3.2.2",
+    build_file_content = "package(default_visibility = [\"//visibility:public\"])\nfilegroup(name = \"all\", srcs = glob([\"**\"]))",
+)
+archive(
+    name = "sdl3_image_src",
+    urls = ["https://github.com/libsdl-org/SDL_image/archive/refs/tags/release-3.2.4.tar.gz"],
+    strip_prefix = "SDL_image-release-3.2.4",
+    build_file_content = "package(default_visibility = [\"//visibility:public\"])\nfilegroup(name = \"all\", srcs = glob([\"**\"]))",
+)
+
+archive(
+    name = "lua",
+    urls = ["https://www.lua.org/ftp/lua-5.4.8.tar.gz"],
+    sha256 = "4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae",
+    strip_prefix = "lua-5.4.8",
+    build_file_content = """
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "lua",
+    srcs = glob(["src/*.c"], exclude = ["src/lua.c", "src/luac.c"]),
+    hdrs = glob(["src/*.h", "src/*.hpp"]),
+    includes = ["src"],
+    copts = ["-DLUA_USE_LINUX"],
+    linkopts = ["-lm", "-ldl"],
+    visibility = ["//visibility:public"],
+)
+""",
+)
+
+archive(
+    name = "sol2",
+    urls = ["https://github.com/ThePhD/sol2/archive/refs/tags/v3.3.0.tar.gz"],
+    strip_prefix = "sol2-3.3.0",
+    patches = [
+        "//modules/sol2:emptymacro_sol2.patch",
+        "//modules/sol2:construct-fix.patch",
+    ],
+    patch_args = ["-p1"],
+    build_file_content = """
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "sol2",
+    hdrs = glob(["include/**/*.h", "include/**/*.hpp"]),
+    includes = ["include"],
+    defines = ["LUA_VERSION_NUM=504"],
+    deps = ["@lua//:lua"],
+    visibility = ["//visibility:public"],
+)
+""",
+)
+
+archive(
+    name = "catch2",
+    urls = ["https://github.com/catchorg/Catch2/archive/refs/tags/v3.11.0.tar.gz"],
+    strip_prefix = "Catch2-3.11.0",
+    build_file_content = """
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "catch2",
+    hdrs = glob(["src/catch2/**/*.hpp"]),
+    includes = ["src"],
+    visibility = ["//visibility:public"],
+)
+""",
+)
+
+git(
+    name = "sup",
+    remote = "https://git.farthergate.com/sup.git",
+    build_file_content = """
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "sup",
+    srcs = ["sup/sup.cpp"],
+    hdrs = ["sup/include/sup.hpp"],
+    includes = ["sup/include"],
+    copts = ["-std=c++20"],
+    visibility = ["//visibility:public"],
+)
+""",
+)

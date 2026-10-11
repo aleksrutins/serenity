@@ -1,0 +1,16 @@
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+
+package(default_visibility = ["//visibility:public"])
+
+cmake(
+    name = "SDL3_image",
+    lib_source = "@sdl3_image_src//:all",
+    cache_entries = {
+        "SDLIMAGE_VENDORED": "OFF",
+        "SDLIMAGE_TESTS": "OFF",
+    },
+    env = {"CFLAGS": "-std=gnu17"},
+    out_include_dir = "include",
+    out_shared_libs = ["libSDL3_image.so"],
+    deps = ["//modules/SDL3:SDL3"],
+)

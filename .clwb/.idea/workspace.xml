@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+  </component>
+  <component name="BlazeImportSettings">
+    <option name="buildSystem" value="Bazel" />
+    <option name="locationHash" value="serenity-65da048b" />
+    <option name="projectDataDirectory" value="$PROJECT_DIR$" />
+    <option name="projectName" value="serenity" />
+    <option name="projectViewFile" value="$PROJECT_DIR$/.bazelproject" />
+    <option name="workspaceRoot" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="15d7d03b-2bef-4466-8d5a-699136955960" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../2d/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/bindgen.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/bindgen.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../com.farthergate.Serenity.Devel.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example-launcher/main.vala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example-launcher/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/camera/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/input/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lettuce/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../graphics/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input/meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../meson.build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/SDL3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/SDL3_image.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/SDL3_ttf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/catch2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/lua5.4/lua-5.4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/serenity.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/sol2/sol2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../modules/sup.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/meson.build" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="xtWDC3lH" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3KZJuEmpsr3qqaRzE1djhfKLkBX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Bazel Command.Bazel build SDL3:SDL3.executor": "Run",
+    "Bazel Command.Bazel run dontlookback:serenity-example-dontlookback.executor": "Run",
+    "Bazel Command.Bazel run example-launcher:serenity-example-launcher.executor": "Run",
+    "CidrDebugProfileConversion": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "bazel.project.detector.is.bazel.project": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/aleks/Projects/serenity",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Bazel Command.Bazel build SDL3:SDL3">
+    <configuration name="Bazel build SDL3:SDL3" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command" temporary="true" nameIsGenerated="true">
+      <blaze-settings handler-id="BlazeCommandGenericRunConfigurationHandlerProvider" blaze-command="build">
+        <blaze-target>//modules/SDL3:SDL3</blaze-target>
+        <env_state>
+          <envs />
+        </env_state>
+      </blaze-settings>
+      <method v="2">
+        <option name="Blaze.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Bazel run dontlookback:serenity-example-dontlookback" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command" temporary="true" nameIsGenerated="true">
+      <blaze-settings kind="cc_binary" handler-id="BlazeCLionRunConfigurationHandlerProvider" blaze-command="run">
+        <blaze-target>//examples/dontlookback:serenity-example-dontlookback</blaze-target>
+        <env_state>
+          <envs />
+        </env_state>
+      </blaze-settings>
+      <method v="2">
+        <option name="Blaze.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Bazel run example-launcher:serenity-example-launcher" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command" temporary="true" nameIsGenerated="true">
+      <blaze-settings kind="cc_binary" handler-id="BlazeCLionRunConfigurationHandlerProvider" blaze-command="run">
+        <blaze-target>//example-launcher:serenity-example-launcher</blaze-target>
+        <env_state>
+          <envs />
+        </env_state>
+      </blaze-settings>
+      <method v="2">
+        <option name="Blaze.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Bazel Command.Bazel build SDL3:SDL3" />
+        <item itemvalue="Bazel Command.Bazel run dontlookback:serenity-example-dontlookback" />
+        <item itemvalue="Bazel Command.Bazel run example-launcher:serenity-example-launcher" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SelectedDebugProfileService">{
+  &quot;profileIdByStamp&quot;: [],
+  &quot;modificationCount&quot;: 1
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15d7d03b-2bef-4466-8d5a-699136955960" name="Changes" comment="" />
+      <created>1791759379175</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1791759379175</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
