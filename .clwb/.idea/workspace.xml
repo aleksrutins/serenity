@@ -20,25 +20,20 @@
     <option name="dirty" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Get build working">
-      <change afterPath="$PROJECT_DIR$/../.bazelrc" afterDir="false" />
+    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Get build working on Mac">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bazel-bin" beforeDir="false" afterPath="$PROJECT_DIR$/../bazel-bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bazel-out" beforeDir="false" afterPath="$PROJECT_DIR$/../bazel-out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bazel-serenity" beforeDir="false" afterPath="$PROJECT_DIR$/../bazel-serenity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bazel-testlogs" beforeDir="false" afterPath="$PROJECT_DIR$/../bazel-testlogs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../compile_commands.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../core/include/serenity/math/vec.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/math/vec.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/input/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/input/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/input/smiley.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/input/smiley.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../graphics/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/SDL3/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/SDL3/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/SDL3_image/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/SDL3_image/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/SDL3_ttf/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/SDL3_ttf/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/math.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/math.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/BUILD.bazel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/bindgen.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/BUILD.bazel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/runtime_test.lua" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/runtime_test.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/2d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/core.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/core.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/graphics.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/input.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/math.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/usertypes.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/usertypes.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +47,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/aleks/Projects/serenity/core/include/serenity/math/vec.hpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/aleks/Projects/serenity/runtime/types/math.hpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="00PfrPMm" />
@@ -68,8 +63,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Bazel Command.Bazel build example-launcher:serenity-example-launcher.executor": "SkylarkDebugExecutor",
     "Bazel Command.Bazel run dontlookback:serenity-example-dontlookback.executor": "Run",
+    "Bazel Command.Bazel run runtime:serenity.executor": "Run",
     "CidrDebugProfileConversion": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
@@ -78,6 +75,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "additional_languages_helper_suppressed_python": "true",
     "bazel.project.detector.is.bazel.project": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
@@ -87,7 +85,10 @@
     "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Bazel Command.Bazel run dontlookback:serenity-example-dontlookback">
+  <component name="PyDebuggerOptionsProvider">
+    <option name="myDebuggerBackend" value="DEBUGPY" />
+  </component>
+  <component name="RunManager" selected="Bazel Command.Bazel run runtime:serenity">
     <configuration name="Bazel build example-launcher:serenity-example-launcher" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command" temporary="true" nameIsGenerated="true">
       <blaze-settings handler-id="BlazeCLionRunConfigurationHandlerProvider" kind="cc_binary" blaze-command="build">
         <blaze-target>//example-launcher:serenity-example-launcher</blaze-target>
@@ -110,8 +111,20 @@
         <option name="Blaze.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Bazel run runtime:serenity" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command" temporary="true" nameIsGenerated="true">
+      <blaze-settings handler-id="BlazeCLionRunConfigurationHandlerProvider" kind="cc_binary" blaze-command="run">
+        <blaze-target>//runtime:serenity</blaze-target>
+        <env_state>
+          <envs />
+        </env_state>
+      </blaze-settings>
+      <method v="2">
+        <option name="Blaze.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Bazel Command.Bazel run runtime:serenity" />
         <item itemvalue="Bazel Command.Bazel run dontlookback:serenity-example-dontlookback" />
         <item itemvalue="Bazel Command.Bazel build example-launcher:serenity-example-launcher" />
       </list>
@@ -133,5 +146,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Get build working on Mac" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get build working on Mac" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../runtime/main.cpp</url>
+          <line>1</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

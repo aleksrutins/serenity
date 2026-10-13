@@ -1,0 +1,10 @@
+using namespace serenity::input;
+
+global {
+    key -> [key_code = [](char c){ if(c >= 'a') c = (c - 'a') + 'A'; return static_cast<int>(c - 'A' + 4); }](char c){ return keyboard::state()[key_code(c)]; };
+    keyboard -> lua.create_table_with(
+        "state", keyboard::state,
+        "code", [](char c){ if(c >= 'a') c = (c - 'a') + 'A'; return static_cast<int>(c - 'A' + 4); },
+        "special", lua.create_table()
+    );
+}

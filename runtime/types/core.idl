@@ -1,0 +1,25 @@
+using namespace serenity;
+using namespace std;
+
+opaque class Sup;
+opaque class Scene;
+class Game : Scene, Sup {
+    static instance -> &app;
+}
+class Entity : Sup {
+    new(Scene *);
+    new(Scene *, string);
+}
+class Component : Sup {
+    new(Sup *);
+}
+class TimerSystem (time::TimerSystem) : Sup {
+    new(Sup *);
+    void start60() -> start<60>;
+    void start120() -> start<120>;
+    void stop() -> stop;
+}
+class OnTick (time::OnTick) : Sup {
+    new(Entity *, std::function<void(time::TimerSystem *)>, std::function<void(time::TimerSystem *)>);
+    static none -> time::OnTick::none;
+}

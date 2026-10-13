@@ -1,0 +1,29 @@
+using namespace serenity;
+using namespace serenity::math;
+
+namespace vec {
+    Vec2f vec2f(float, float) -> math::vec2;
+    Vec2i vec2i(int, int) -> math::vec2;
+    Vec2d vec2d(double, double) -> math::vec2;
+    Vec2u vec2u(unsigned, unsigned) -> math::vec2;
+    Vec3f vec3f(float, float, float) -> math::vec3;
+    Vec3i vec3i(int, int, int) -> math::vec3;
+    Vec3d vec3d(double, double, double) -> math::vec3;
+    Vec3u vec3u(unsigned, unsigned, unsigned) -> math::vec3;
+    Vec4f vec4f(float, float, float, float) -> math::vec4;
+    Vec4i vec4i(int, int, int, int) -> math::vec4;
+    Vec4d vec4d(double, double, double, double) -> math::vec4;
+    Vec4u vec4u(unsigned, unsigned, unsigned, unsigned) -> math::vec4;
+    x -> math::x;
+    y -> math::y;
+    z -> math::z;
+    t -> math::t;
+    add2f -> [](Vec2f a, Vec2f b){ return a + b; };
+    sub2f -> [](Vec2f a, Vec2f b){ return a - b; };
+}
+
+namespace math {
+    float lerp(float, float, float) -> serenity::math::lerp;
+    Vec2f lerp(Vec2f, Vec2f, float) -> serenity::math::lerp;
+    Vec4f lerp(Vec4f, Vec4f, float) -> serenity::math::lerp;
+}

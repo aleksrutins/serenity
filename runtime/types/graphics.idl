@@ -1,0 +1,12 @@
+using namespace serenity;
+using namespace std;
+
+class Renderer (graphics::Renderer) : Sup {
+    new(Sup *, const char *, Uint64, Uint64);
+    void run() -> run;
+    void quit() -> quit;
+}
+class CustomRender (graphics::CustomRender) : Component, Sup {
+    new(Entity *, std::function<void(graphics::Renderer *)>, std::function<void(graphics::Renderer *)>);
+    static none -> graphics::CustomRender::none;
+}

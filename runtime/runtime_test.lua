@@ -4,7 +4,7 @@ local g = Game.instance
 
 local t = TimerSystem.new(g)
 
-local sprites = Spritesheet.for_scene(g, "/app/share/serenity/examples/tilemap.png", vec.vec2f(32, 32))
+local sprites = Spritesheet.for_scene(g, "./examples/dontlookback/tilemap.png", vec.vec2f(32, 32))
 
 local e2 = Entity.new(g, "follower")
 local tr2 = Transform.new(e2, vec.vec2f(50, 50))

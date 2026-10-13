@@ -1,10 +1,24 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary")
+load(":bindings.bzl", "lua_binding")
 
 package(default_visibility = ["//visibility:public"])
 
+lua_binding("math")
+lua_binding("core")
+lua_binding("graphics")
+lua_binding("2d")
+lua_binding("input")
+
 cc_binary(
     name = "serenity",
-    srcs = ["main.cpp"] + glob(["**/*.hpp"]),
+    srcs = [
+        "main.cpp",
+        ":math_binding",
+        ":core_binding",
+        ":graphics_binding",
+        ":2d_binding",
+        ":input_binding",
+    ] + glob(["**/*.hpp"]),
     includes = ["."],
     copts = ["-Ofast", "-std=c++20"],
     deps = [

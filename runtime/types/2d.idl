@@ -1,0 +1,29 @@
+using namespace serenity;
+using namespace serenity::math;
+
+ global {
+    SDL_FRect rectangle(float, float, float, float) -> twod::rectangle;
+    SDL_FRect rectangle(Vec2f, Vec2f) -> twod::rectangle;
+}
+class Painter (twod::Painter) : Sup {
+    new(graphics::Renderer *);
+    SDL_Texture * load_image(const char *) -> loadImage;
+    void draw(SDL_Texture *, const SDL_FRect *) -> draw;
+    void draw(SDL_Texture *, const SDL_FRect *, const SDL_FRect *) -> draw;
+}
+class Spritesheet (twod::Spritesheet) : Component, Sup {
+    factory for_scene(Scene *, const char *, Vec2f) -> forScene;
+    twod::Sprite * load(Entity *, Vec2i) -> load;
+}
+class Sprite (twod::Sprite) : Component, Sup {
+    factory load(Entity *, const char *, Vec2f) -> load;
+    Vec2f size() -> size;
+    Vec4f box() -> box;
+}
+class Transform (twod::Transform) : Component, Sup {
+    new(Entity *, Vec2f);
+    void translate(float, float) -> translate;
+    void translate(Vec2f) -> translate;
+    void position(Vec2f) -> position;
+    Vec2f position() -> position;
+}
