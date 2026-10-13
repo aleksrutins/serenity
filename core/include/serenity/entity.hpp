@@ -12,6 +12,7 @@ public:
 
 	void init(Sup *);
 	void update(Sup *);
+	void remove() { parent()->remove(this); }
 
 	auto name() -> std::optional<std::string> {return _name;}
 };

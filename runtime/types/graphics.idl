@@ -1,7 +1,13 @@
+include <serenity/graphics.hpp>;
+include <SDL3/SDL.h>;
+include <functional>;
+
 using namespace serenity;
 using namespace std;
 
 class Renderer (graphics::Renderer) : Sup {
+    new(Sup *, const char *);
+    new(Sup *, const char *, Uint64);
     new(Sup *, const char *, Uint64, Uint64);
     void run() -> run;
     void quit() -> quit;

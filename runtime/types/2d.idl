@@ -1,3 +1,7 @@
+include "serenity/2d.hpp";
+include <SDL3/SDL.h>;
+include <optional>;
+
 using namespace serenity;
 using namespace serenity::math;
 
@@ -20,10 +24,49 @@ class Sprite (twod::Sprite) : Component, Sup {
     Vec2f size() -> size;
     Vec4f box() -> box;
 }
+
+class Camera (twod::Camera) : Entity, Sup {
+    new(Scene *, Vec2f);
+    void follow(twod::Transform *, double) -> follow;
+    void follow(Entity *, double) -> follow;
+}
+
+class CollisionBox (twod::CollisionBox) : Component, Sup {
+    new(Entity *, decltype(twod::CollisionBox::mode));
+    new(Entity *, decltype(twod::CollisionBox::mode), std::optional<Vec2f>);
+    void init(Sup *) -> init;
+    void update(Sup *) -> update;
+    Vec4f rect() -> rect;
+    bool hasCollision() -> hasCollision;
+    bool overlaps(Vec2f) -> overlaps;
+    bool overlaps(twod::CollisionBox *) -> overlaps;
+    mode -> &twod::CollisionBox::mode;
+    static Solid -> twod::CollisionBox::Solid;
+    static Movable -> twod::CollisionBox::Movable;
+    static PassThrough -> twod::CollisionBox::PassThrough;
+    static DoNotAvoid -> twod::CollisionBox::DoNotAvoid;
+}
+
+class PlatformerPhysics (twod::PlatformerPhysics) : Component, Sup {
+    new(Entity *);
+    new(Entity *, float);
+    new(Entity *, float, float);
+    void init(Sup *) -> init;
+    void update(Sup *) -> update;
+    void jump() -> jump;
+    fallSpeed -> &twod::PlatformerPhysics::fallSpeed;
+    jumpSpeed -> &twod::PlatformerPhysics::jumpSpeed;
+}
 class Transform (twod::Transform) : Component, Sup {
+    new(Entity *);
     new(Entity *, Vec2f);
     void translate(float, float) -> translate;
     void translate(Vec2f) -> translate;
     void position(Vec2f) -> position;
     Vec2f position() -> position;
+    Vec2f screenPosition() -> screenPosition;
+    Vec2f screenPosition(twod::Camera *) -> screenPosition;
+    void rollback() -> rollback;
+    float x() -> x;
+    float y() -> y;
 }

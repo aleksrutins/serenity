@@ -23,12 +23,16 @@
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Generate bindings from IDL">
+    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Fix data races &amp; segfaults">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../core/include/serenity/time/timersystem.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/time/timersystem.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../graphics/renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/renderer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/bindgen.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/bindgen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/include/serenity/entity.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/entity.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/2d.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/2d.idl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/core.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/core.idl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/graphics.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/graphics.idl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/input.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/input.idl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/math.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/math.idl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +153,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Get build working on Mac" />
     <MESSAGE value="Generate bindings from IDL" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generate bindings from IDL" />
+    <MESSAGE value="Fix data races &amp; segfaults" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix data races &amp; segfaults" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,14 +1,25 @@
+include <serenity/core.hpp>;
+include <chrono>;
+include <optional>;
+include <string>;
+include <vector>;
+
 using namespace serenity;
 using namespace std;
 
 opaque class Sup;
-opaque class Scene;
+class Scene : Sup {
+    new(Sup *);
+    vector<Entity *> entities() -> entities;
+}
 class Game : Scene, Sup {
     static instance -> &app;
 }
 class Entity : Sup {
     new(Scene *);
     new(Scene *, string);
+    std::optional<std::string> name() -> name;
+    void remove() -> remove;
 }
 class Component : Sup {
     new(Sup *);
@@ -18,6 +29,7 @@ class TimerSystem (time::TimerSystem) : Sup {
     void start60() -> start<60>;
     void start120() -> start<120>;
     void stop() -> stop;
+    delta_ms -> [](time::TimerSystem *timer){ return timer->delta().count(); };
 }
 class OnTick (time::OnTick) : Sup {
     new(Entity *, std::function<void(time::TimerSystem *)>, std::function<void(time::TimerSystem *)>);

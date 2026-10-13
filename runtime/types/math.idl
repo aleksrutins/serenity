@@ -1,3 +1,5 @@
+include <serenity/math.hpp>;
+
 using namespace serenity;
 using namespace serenity::math;
 

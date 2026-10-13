@@ -10,6 +10,7 @@ The runtime build runs the generator separately for each IDL in `runtime/types/`
 
 ## Supported declarations
 
+- `include <header>;` or `include "header";` emits a C++ include in the generated header.
 - `using namespace ...;` emits a C++ using directive.
 - `namespace name { ... }` creates a Lua table. `Type name(Args...) -> cpp_function;` binds a function with the declared signature; repeated names become a sol2 overload set. `name -> cpp_value;` binds a value or callable expression.
 - `global { ... }` binds functions and values directly on the Lua state, also combining repeated function names into overload sets.

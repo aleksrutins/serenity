@@ -42,6 +42,11 @@ class Parser:
             items.append(self.declaration())
         return items
     def declaration(self):
+        if self.peek() == 'include':
+            self.take()
+            header=self.until({';'})
+            self.take(';')
+            return ('include', header)
         if self.peek() == 'using':
             self.take(); self.take('namespace'); name=self.until({';'}); self.take(';')
             return ('using', name)
@@ -117,7 +122,8 @@ def emit(items):
     out=[]
     for item in items:
         k=item[0]
-        if k=='using': out.append(f'using namespace {item[1]};')
+        if k=='include': out.append(f'#include {item[1]}')
+        elif k=='using': out.append(f'using namespace {item[1]};')
         elif k=='namespace':
             _,name,body=item
             funcs=[x for x in body if x[0] in ('method','value')]

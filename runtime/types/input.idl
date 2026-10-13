@@ -1,3 +1,5 @@
+include <serenity/input.hpp>;
+
 using namespace serenity::input;
 
 global {
