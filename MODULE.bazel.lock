@@ -86,6 +86,8 @@
     "https://bcr.bazel.build/modules/nlohmann_json/3.12.0.bcr.1/MODULE.bazel": "a1c8bb07b5b91d971727c635f449d05623ac9608f6fe4f5f04254ea12f08e349",
     "https://bcr.bazel.build/modules/nlohmann_json/3.12.0.bcr.1/source.json": "93f82a5ae985eb935c539bfee95e04767187818189241ac956f3ccadbdb8fb02",
     "https://bcr.bazel.build/modules/nlohmann_json/3.6.1/MODULE.bazel": "6f7b417dcc794d9add9e556673ad25cb3ba835224290f4f848f8e2db1e1fca74",
+    "https://bcr.bazel.build/modules/package_metadata/0.0.3/MODULE.bazel": "77890552ecea9e284b5424c9de827a58099348763a4359e975c359a83d4faa83",
+    "https://bcr.bazel.build/modules/package_metadata/0.0.3/source.json": "742075a428ad12a3fa18a69014c2f57f01af910c6d9d18646c990200853e641a",
     "https://bcr.bazel.build/modules/pkgconf/3.0.7/MODULE.bazel": "b40f6bfd17bebe65e7606e978417ec45ed16672cd7b2c5c43f7a55fc91aa4f0c",
     "https://bcr.bazel.build/modules/pkgconf/3.0.7/source.json": "d6657631d2ee8ca9abb92f51794ed07c8bf75e75e9f5e8dc8eadbb74b8a11b9b",
     "https://bcr.bazel.build/modules/platforms/0.0.10/MODULE.bazel": "8cb8efaf200bdeb2150d93e162c40f388529a25852b332cec879373771e48ed5",
@@ -97,7 +99,8 @@
     "https://bcr.bazel.build/modules/platforms/0.0.8/MODULE.bazel": "9f142c03e348f6d263719f5074b21ef3adf0b139ee4c5133e2aa35664da9eb2d",
     "https://bcr.bazel.build/modules/platforms/0.0.9/MODULE.bazel": "4a87a60c927b56ddd67db50c89acaa62f4ce2a1d2149ccb63ffd871d5ce29ebc",
     "https://bcr.bazel.build/modules/platforms/1.0.0/MODULE.bazel": "f05feb42b48f1b3c225e4ccf351f367be0371411a803198ec34a389fb22aa580",
-    "https://bcr.bazel.build/modules/platforms/1.0.0/source.json": "f4ff1fd412e0246fd38c82328eb209130ead81d62dcd5a9e40910f867f733d96",
+    "https://bcr.bazel.build/modules/platforms/1.1.0/MODULE.bazel": "1c0c09f5bdcf4b3f924720d2478a3711cb39f4977019ca5988685e5b7e18b3d2",
+    "https://bcr.bazel.build/modules/platforms/1.1.0/source.json": "fcf351c47596c939140ab0d333dfdd08ed1ea6ce33c2fe70c12493a301cf1344",
     "https://bcr.bazel.build/modules/protobuf/21.7/MODULE.bazel": "a5a29bb89544f9b97edce05642fac225a808b5b7be74038ea3640fae2f8e66a7",
     "https://bcr.bazel.build/modules/protobuf/27.0/MODULE.bazel": "7873b60be88844a0a1d8f80b9d5d20cfbd8495a689b8763e76c6372998d3f64c",
     "https://bcr.bazel.build/modules/protobuf/29.0-rc2/MODULE.bazel": "6241d35983510143049943fc0d57937937122baf1b287862f9dc8590fc4c37df",
@@ -195,6 +198,8 @@
     "https://bcr.bazel.build/modules/rules_python/1.7.0/MODULE.bazel": "d01f995ecd137abf30238ad9ce97f8fc3ac57289c8b24bd0bf53324d937a14f8",
     "https://bcr.bazel.build/modules/rules_python/1.9.0/MODULE.bazel": "afc3a05f29f09f2d3ee95ad99a145250dab41a2b2d8d6f82cc91936b3213282c",
     "https://bcr.bazel.build/modules/rules_python/1.9.0/source.json": "3921ea0b65298d51aead5b9e4a82203d7be9b5918619b58b53f1c259f4e63169",
+    "https://bcr.bazel.build/modules/rules_qt/0.0.7/MODULE.bazel": "c2840dd0c8abce6620e5e5ab737eff8bc15320ba42f1516feff6fa790748fc19",
+    "https://bcr.bazel.build/modules/rules_qt/0.0.7/source.json": "3c93394d194ad6750dd4265b9b959ea8da90e0653c1a396b3abedc58b2a6cea6",
     "https://bcr.bazel.build/modules/rules_shell/0.2.0/MODULE.bazel": "fda8a652ab3c7d8fee214de05e7a9916d8b28082234e8d2c0094505c5268ed3c",
     "https://bcr.bazel.build/modules/rules_shell/0.3.0/MODULE.bazel": "de4402cd12f4cc8fda2354fce179fdb068c0b9ca1ec2d2b17b3e21b24c1a937b",
     "https://bcr.bazel.build/modules/rules_shell/0.4.1/MODULE.bazel": "00e501db01bbf4e3e1dd1595959092c2fadf2087b2852d3f553b5370f5633592",
@@ -303,6 +308,69 @@
                 ]
               },
               "toolchain_target_settings": {}
+            }
+          }
+        }
+      }
+    },
+    "@@rules_qt+//extension:qt.bzl%fetch": {
+      "general": {
+        "bzlTransitiveDigest": "2stWQpnnrLV8A9uU/vpY0+X+dmuXWmP+jTQYoPtwcaQ=",
+        "usagesDigest": "/fR8opbsAS+JLk+aVLrdK5ii+M84pVO7/GDCKsCoTJY=",
+        "recordedInputs": [
+          "REPO_MAPPING:,rules_qt rules_qt+",
+          "REPO_MAPPING:rules_qt+,bazel_skylib bazel_skylib+",
+          "REPO_MAPPING:rules_qt+,rules_qt rules_qt+"
+        ],
+        "generatedRepoSpecs": {
+          "qt_mac_aarch64": {
+            "repoRuleId": "@@rules_qt+//extension:download_qt.bzl%download_qt",
+            "attributes": {
+              "version": "6.8.3",
+              "os": "macos",
+              "target_sdk": "desktop",
+              "build_file": "@@rules_qt+//extension:qt/6.8.3/mac_aarch64.BUILD",
+              "windows_architecture": ""
+            }
+          },
+          "qt_mac_x86_64": {
+            "repoRuleId": "@@rules_qt+//extension:download_qt.bzl%download_qt",
+            "attributes": {
+              "version": "6.8.3",
+              "os": "macos",
+              "target_sdk": "desktop",
+              "build_file": "@@rules_qt+//extension:qt/6.8.3/mac_aarch64.BUILD",
+              "windows_architecture": ""
+            }
+          },
+          "qt_linux_x86_64": {
+            "repoRuleId": "@@rules_qt+//extension:download_qt.bzl%download_qt",
+            "attributes": {
+              "version": "6.8.3",
+              "os": "linux_x86_64",
+              "target_sdk": "desktop",
+              "build_file": "@@rules_qt+//extension:qt/6.8.3/linux_x86_64.BUILD",
+              "windows_architecture": ""
+            }
+          },
+          "qt_linux_aarch64": {
+            "repoRuleId": "@@rules_qt+//extension:download_qt.bzl%download_qt",
+            "attributes": {
+              "version": "6.8.3",
+              "os": "linux_aarch64",
+              "target_sdk": "desktop",
+              "build_file": "@@rules_qt+//extension:qt/6.8.3/linux_aarch64.BUILD",
+              "windows_architecture": ""
+            }
+          },
+          "qt_windows_x86_64": {
+            "repoRuleId": "@@rules_qt+//extension:download_qt.bzl%download_qt",
+            "attributes": {
+              "version": "6.8.3",
+              "os": "windows",
+              "target_sdk": "desktop",
+              "build_file": "@@rules_qt+//extension:qt/6.8.3/windows_x86_64.BUILD",
+              "windows_architecture": "win64_msvc2022"
             }
           }
         }

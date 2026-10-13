@@ -10,3 +10,5 @@ cc_binary(
     deps = ["//2d:serenity-2d", "//core:serenity", "//graphics:serenity-graphics", "//input:serenity-input"],
     data = ["tilemap.png"],
 )
+
+exports_files(["dontlookback.lua"])

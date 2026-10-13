@@ -1,53 +1,34 @@
-#load("@rules_qt//:qt.bzl", "qt_cc_binary")
-#
-#package(default_visibility = ["//visibility:public"])
-#
-#
-#config_setting(
-#    name = "osx_arm64",
-#    constraint_values = [
-#        "@platforms//os:osx",
-#        "@platforms//cpu:aarch64",
-#    ],
-#    visibility = ["//visibility:public"]
-#)
-#
-#config_setting(
-#    name = "osx_x86_64",
-#    constraint_values = [
-#        "@platforms//os:osx",
-#        "@platforms//cpu:x86_64",
-#    ],
-#    visibility = ["//visibility:public"]
-#)
-#
-#config_setting(
-#    name = "linux_aarch64",
-#    constraint_values = [
-#        "@platforms//os:linux",
-#        "@platforms//cpu:aarch64",
-#    ],
-#    visibility = ["//visibility:public"]
-#)
-#
-#config_setting(
-#    name = "linux_x86_64",
-#    constraint_values = [
-#        "@platforms//os:linux",
-#        "@platforms//cpu:x86_64",
-#    ],
-#    visibility = ["//visibility:public"]
-#)
-#
-#qt_cc_binary(
-#    name = "serenity-example-launcher",
-#    srcs = ["main.cpp"],
-#    copts = [
-#        "-std=c++20",
-#    ],
-#    deps = ["@rules_qt//:qt_core",
-#            "@rules_qt//:qt_gui",
-#            "@rules_qt//:qt_widgets"],
-#)
-#
-#exports_files(["image-missing.svg"])
+load("@rules_qt//:qt.bzl", "qt_cc_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+qt_cc_binary(
+    name = "serenity-example-launcher",
+    srcs = ["main.cpp"],
+    copts = [
+        "-std=c++20",
+        "-DSERENITY_LETTUCE_EXECUTABLE=\\\"$(location //examples/lettuce:serenity-example-lettuce)\\\"",
+        "-DSERENITY_INPUT_EXECUTABLE=\\\"$(location //examples/input:serenity-example-input)\\\"",
+        "-DSERENITY_CAMERA_EXECUTABLE=\\\"$(location //examples/camera:serenity-example-camera)\\\"",
+        "-DSERENITY_DONTLOOKBACK_EXECUTABLE=\\\"$(location //examples/dontlookback:serenity-example-dontlookback)\\\"",
+        "-DSERENITY_RUNTIME_EXECUTABLE=\\\"$(location //runtime:serenity)\\\"",
+        "-DSERENITY_DONTLOOKBACK_SCRIPT=\\\"$(location //examples/dontlookback:dontlookback.lua)\\\"",
+        "-DSERENITY_RUNTIME_TEST_SCRIPT=\\\"$(location //runtime:runtime_test.lua)\\\"",
+    ],
+    data = [
+        "//examples/lettuce:serenity-example-lettuce",
+        "//examples/input:serenity-example-input",
+        "//examples/camera:serenity-example-camera",
+        "//examples/dontlookback:serenity-example-dontlookback",
+        "//examples/dontlookback:dontlookback.lua",
+        "//runtime:serenity",
+        "//runtime:runtime_test.lua",
+    ],
+    deps = [
+        "@rules_qt//:qt_core",
+        "@rules_qt//:qt_gui",
+        "@rules_qt//:qt_widgets",
+    ],
+)
+
+exports_files(["image-missing.svg"])

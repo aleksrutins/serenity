@@ -1,9 +1,14 @@
+#include <QCoreApplication>
+#include <QDir>
+#include <QFileInfo>
 #include <QApplication>
 #include <QFrame>
 #include <QLabel>
+#include <QMessageBox>
 #include <QPalette>
 #include <QProcess>
 #include <QPushButton>
+#include <QStringList>
 #include <QVBoxLayout>
 #include <QWidget>
 
@@ -11,19 +16,43 @@ namespace {
 
 struct Example {
     const char *name;
-    const char *command;
+    const char *executable;
+    const char *script;
 };
 
 constexpr Example examples[] = {
-    {"Lettuce", "serenity-example-lettuce"},
-    {"Input", "serenity-example-input"},
-    {"Camera", "serenity-example-camera"},
-    {"Don't Look Back", "serenity-example-dontlookback"},
-    {"Runtime", "serenity-runtime-test"},
+    {"Lettuce", SERENITY_LETTUCE_EXECUTABLE, nullptr},
+    {"Input", SERENITY_INPUT_EXECUTABLE, nullptr},
+    {"Camera", SERENITY_CAMERA_EXECUTABLE, nullptr},
+    {"Don't Look Back", SERENITY_DONTLOOKBACK_EXECUTABLE, nullptr},
+    {"Don't Look Back (Lua)", SERENITY_RUNTIME_EXECUTABLE, SERENITY_DONTLOOKBACK_SCRIPT},
+    {"Runtime", SERENITY_RUNTIME_EXECUTABLE, SERENITY_RUNTIME_TEST_SCRIPT},
 };
 
-void launch(const char *command) {
-    QProcess::startDetached( command);
+QString workspaceRootFromExecutablePath() {
+    const QString executableDir = QCoreApplication::applicationDirPath();
+    for (const auto &outputDir : {QStringLiteral("/bazel-out/"), QStringLiteral("/bazel-bin/")}) {
+        const auto marker = executableDir.lastIndexOf(outputDir);
+        if (marker >= 0) return executableDir.left(marker);
+    }
+    return QDir::currentPath();
+}
+
+void launch(const Example &example, const QString &workspaceRoot) {
+    const QString executable = QDir(workspaceRoot).filePath(
+        QString::fromUtf8(example.executable));
+    if (!QFileInfo(executable).isExecutable()) {
+        QMessageBox::warning(nullptr, QStringLiteral("Example not built"),
+            QStringLiteral("Could not find the Bazel executable:\n%1\n\nBuild it with Bazel, then try again.").arg(executable));
+        return;
+    }
+
+    QStringList arguments;
+    if (example.script) arguments << QString::fromUtf8(example.script);
+    if (!QProcess::startDetached(executable, arguments, workspaceRoot)) {
+        QMessageBox::warning(nullptr, QStringLiteral("Could not launch example"),
+            QStringLiteral("Failed to start %1.").arg(executable));
+    }
 }
 
 }
@@ -53,6 +82,8 @@ int main(int argc, char **argv) {
         QPushButton:pressed { background: #a8d35f; color: #11140f; }
     )");
 
+    const QString workspaceRoot = workspaceRootFromExecutablePath();
+
     QWidget window;
     window.setObjectName("window");
     window.setWindowTitle("Serenity Examples");
@@ -81,8 +112,8 @@ int main(int argc, char **argv) {
 
     for (const auto &example : examples) {
         auto *button = new QPushButton(example.name);
-        QObject::connect(button, &QPushButton::clicked, [command = example.command] {
-            launch(command);
+        QObject::connect(button, &QPushButton::clicked, [example, workspaceRoot] {
+            launch(example, workspaceRoot);
         });
         content->addWidget(button);
     }
