@@ -9,8 +9,16 @@ cmake(
         "SDLIMAGE_VENDORED": "OFF",
         "SDLIMAGE_TESTS": "OFF",
     },
-    env = {"CFLAGS": "-std=gnu17"},
+#    env = {"CFLAGS": "-std=gnu17"},
     out_include_dir = "include",
-    out_shared_libs = ["libSDL3_image.so"],
+    out_interface_libs = select({
+        "@bazel_tools//src/conditions:windows": ["SDL3_image.lib"],
+        "//conditions:default": []
+    }),
+    out_shared_libs = select({
+        "@bazel_tools//src/conditions:darwin": ["libSDL3_image.0.dylib"],
+        "@bazel_tools//src/conditions:linux": ["libSDL3_image.so.0"],
+        "@bazel_tools//src/conditions:windows": ["SDL3_image.dll"]
+    }),
     deps = ["//modules/SDL3:SDL3"],
 )

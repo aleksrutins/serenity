@@ -19,6 +19,18 @@ struct Vec {
 	T &operator[](size_t i) {
 		return components[i];
 	}
+	const T &operator[](size_t i) const {
+		return components[i];
+	}
+
+	friend std::ostream &operator<<(std::ostream &os, const Vec<len, T> &v) {
+		os << "<";
+		for(unsigned int i = 0; i < len; i++) {
+			os << v[i];
+			if(i < len-1) os << ", ";
+		}
+		return os << ">";
+	}
 
 	VEC_CMPOP(==, &&)
 	VEC_CMPOP(>,  ||)
@@ -62,16 +74,6 @@ VEC_BINOP_S_SIMPLE(*)
 VEC_BINOP_S_ELWISE(/)
 
 }
-}
-
-template <unsigned int len, typename T>
-std::ostream &std::operator<<(std::ostream &os, serenity::math::Vec<len, T> v) {
-	os << "<";
-	for(unsigned int i = 0; i < len; i++) {
-		os << v[i];
-		if(i < len-1) os << ", ";
-	}
-	return os << ">";
 }
 
 #include "../util/_vec.internal.un.hpp"

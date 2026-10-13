@@ -3,8 +3,11 @@ module(
     version = "0.1.0",
 )
 
-bazel_dep(name = "rules_cc", version = "0.2.17")
-bazel_dep(name = "rules_foreign_cc", version = "0.15.1")
+bazel_dep(name = "apple_support", version = "2.10.1")
+bazel_dep(name = "rules_cc", version = "0.2.26")
+bazel_dep(name = "rules_foreign_cc", version = "0.16.0")
+#bazel_dep(name = "rules_qt", version = "0.0.7")
+#bazel_dep(name = "platforms", version = "1.1.0")
 
 register_toolchains("@rules_foreign_cc//toolchains:preinstalled_pkgconfig_toolchain")
 

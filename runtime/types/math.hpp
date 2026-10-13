@@ -1,4 +1,6 @@
 using namespace serenity::math;
+using namespace std::literals;
+
 lua["vec"] = lua.create_table_with(
 	"vec2f", static_cast<math::Vec2f(*)(float, float)>(math::vec2),
 	"vec2i", static_cast<math::Vec2i(*)(int, int)>(math::vec2),
@@ -24,8 +26,8 @@ lua["vec"] = lua.create_table_with(
 
 lua["math"] = lua.create_table_with(
 	"lerp", overload(
-		static_cast<float(*)(float, float, float)>(lerp),
-		static_cast<Vec2f(*)(Vec2f, Vec2f, float)>(lerp),
-		static_cast<Vec4f(*)(Vec4f, Vec4f, float)>(lerp)
+			static_cast<float(*)(float, float, float)>(serenity::math::lerp),
+			static_cast<Vec2f(*)(Vec2f, Vec2f, float)>(serenity::math::lerp),
+			static_cast<Vec4f(*)(Vec4f, Vec4f, float)>(serenity::math::lerp)
 	)
 );

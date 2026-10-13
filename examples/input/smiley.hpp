@@ -39,6 +39,6 @@ public:
 			tr->position(lerp(tr->position(), go, 0.025));
 	    	});
 
-		Sprite::load(this, SMILEY_PATH, vec2(32, 32));
+		Sprite::load(this, SMILEY_PATH, vec2(32.0, 32.0));
 	}
 };
