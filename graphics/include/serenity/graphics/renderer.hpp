@@ -1,5 +1,6 @@
 #pragma once
 
+#include <atomic>
 #include <sup.hpp>
 #include <SDL3/SDL.h>
 
@@ -14,7 +15,7 @@ class Renderer : public Sup {
     Uint64 width;
     Uint64 height;
 
-    bool _quit = false;
+    std::atomic_bool _quit = false;
 
 public:
     Renderer(Sup *parent, const char *title, Uint64 width = 640, Uint64 height = 480)

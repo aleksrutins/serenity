@@ -19,21 +19,16 @@
   <component name="BlazeSyncStatusState">
     <option name="dirty" value="true" />
   </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Get build working on Mac">
+    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Generate bindings from IDL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bindgen/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bindgen/bindgen.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/runtime_test.lua" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/runtime_test.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/2d.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/core.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/core.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/graphics.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/input.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/math.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/usertypes.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/usertypes.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/include/serenity/time/timersystem.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/time/timersystem.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../graphics/renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/renderer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +42,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/aleks/Projects/serenity/core/include/serenity/time/timersystem.hpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/aleks/Projects/serenity/graphics/include/serenity/graphics/renderer.hpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/aleks/Projects/serenity/graphics/renderer.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/aleks/Projects/serenity/runtime/main.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/aleks/Projects/serenity/runtime/types/math.hpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
@@ -88,7 +87,7 @@
   <component name="PyDebuggerOptionsProvider">
     <option name="myDebuggerBackend" value="DEBUGPY" />
   </component>
-  <component name="RunManager" selected="Bazel Command.Bazel run runtime:serenity">
+  <component name="RunManager" selected="Bazel Command.Bazel run dontlookback:serenity-example-dontlookback">
     <configuration name="Bazel build example-launcher:serenity-example-launcher" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command" temporary="true" nameIsGenerated="true">
       <blaze-settings handler-id="BlazeCLionRunConfigurationHandlerProvider" kind="cc_binary" blaze-command="build">
         <blaze-target>//example-launcher:serenity-example-launcher</blaze-target>
@@ -124,8 +123,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Bazel Command.Bazel run runtime:serenity" />
         <item itemvalue="Bazel Command.Bazel run dontlookback:serenity-example-dontlookback" />
+        <item itemvalue="Bazel Command.Bazel run runtime:serenity" />
         <item itemvalue="Bazel Command.Bazel build example-launcher:serenity-example-launcher" />
       </list>
     </recent_temporary>
@@ -149,7 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Get build working on Mac" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get build working on Mac" />
+    <MESSAGE value="Generate bindings from IDL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generate bindings from IDL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

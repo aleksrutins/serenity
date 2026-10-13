@@ -15,23 +15,22 @@ using namespace std;
 using namespace serenity;
 
 int main(int argc, char **argv) {
-
-    Game app;
 	sol::state lua;
 	lua.open_libraries(sol::lib::base);
 
-	#include "usertypes.hpp"
+	{
+		Game app;
+		#include "usertypes.hpp"
 
-	if(argc > 1) {
-	    lua.script_file(argv[1]);
-    	} else {
-    	    stringstream script;
-    	    cin.get(*script.rdbuf(), char_traits<char>::eof());
+		if(argc > 1) {
+			lua.script_file(argv[1]);
+		} else {
+			stringstream script;
+			cin.get(*script.rdbuf(), char_traits<char>::eof());
+			lua.script(script.view());
+		}
+	}
 
-        lua.script(script.view());
-    	}
-
-    	SDL_Quit();
-
+	SDL_Quit();
 	return 0;
 }
