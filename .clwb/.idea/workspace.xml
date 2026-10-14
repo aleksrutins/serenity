@@ -23,13 +23,10 @@
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Fill out Lua bindings, add Lua version of dontlookback">
+    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Make example launcher work properly with Bazel paths">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../example-launcher/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example-launcher/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +162,8 @@
     <MESSAGE value="Generate bindings from IDL" />
     <MESSAGE value="Fix data races &amp; segfaults" />
     <MESSAGE value="Fill out Lua bindings, add Lua version of dontlookback" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fill out Lua bindings, add Lua version of dontlookback" />
+    <MESSAGE value="Make example launcher work properly with Bazel paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make example launcher work properly with Bazel paths" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

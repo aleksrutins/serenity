@@ -1,18 +1,46 @@
 #include <QCoreApplication>
 #include <QDir>
+#include <QEvent>
 #include <QFileInfo>
 #include <QApplication>
 #include <QFrame>
 #include <QLabel>
 #include <QMessageBox>
+#include <QMouseEvent>
 #include <QPalette>
 #include <QProcess>
 #include <QPushButton>
 #include <QStringList>
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QWindow>
+
+#if defined(Q_OS_MACOS)
+#include <objc/message.h>
+#include <objc/runtime.h>
+#endif
 
 namespace {
+
+class TitlebarDragFilter final : public QObject {
+    QWidget &window;
+
+public:
+    explicit TitlebarDragFilter(QWidget &window) : window(window) {}
+
+    bool eventFilter(QObject *watched, QEvent *event) override {
+        if (event->type() != QEvent::MouseButtonPress) return false;
+        auto *mouse = static_cast<QMouseEvent *>(event);
+        if (mouse->button() != Qt::LeftButton) return false;
+        auto *source = qobject_cast<QWidget *>(watched);
+        if (!source || (source != &window && !window.isAncestorOf(source))) return false;
+
+        const QPoint position = source->mapTo(&window, mouse->position().toPoint());
+        if (position.y() >= 44) return false;
+        if (auto *nativeWindow = window.windowHandle()) nativeWindow->startSystemMove();
+        return true;
+    }
+};
 
 struct Example {
     const char *name;
@@ -37,6 +65,28 @@ QString workspaceRootFromExecutablePath() {
     }
     return QDir::currentPath();
 }
+
+#if defined(Q_OS_MACOS)
+void configureTransparentTitlebar(QWidget &widget) {
+    id nativeView = reinterpret_cast<id>(widget.winId());
+    using GetWindow = id (*)(id, SEL);
+    id nativeWindow = reinterpret_cast<GetWindow>(objc_msgSend)(nativeView, sel_registerName("window"));
+    if (!nativeWindow) return;
+
+    using SetBool = void (*)(id, SEL, BOOL);
+    reinterpret_cast<SetBool>(objc_msgSend)(nativeWindow,
+        sel_registerName("setTitlebarAppearsTransparent:"), YES);
+    reinterpret_cast<SetBool>(objc_msgSend)(nativeWindow,
+        sel_registerName("setMovableByWindowBackground:"), YES);
+
+    using GetStyleMask = unsigned long (*)(id, SEL);
+    unsigned long styleMask = reinterpret_cast<GetStyleMask>(objc_msgSend)(nativeWindow,
+        sel_registerName("styleMask"));
+    using SetStyleMask = void (*)(id, SEL, unsigned long);
+    reinterpret_cast<SetStyleMask>(objc_msgSend)(nativeWindow,
+        sel_registerName("setStyleMask:"), styleMask | (1UL << 15));
+}
+#endif
 
 void launch(const Example &example, const QString &workspaceRoot) {
     const QString executable = QDir(workspaceRoot).filePath(
@@ -86,7 +136,6 @@ int main(int argc, char **argv) {
 
     QWidget window;
     window.setObjectName("window");
-    window.setWindowTitle("Serenity Examples");
     window.setMinimumWidth(360);
 
     auto *outer = new QVBoxLayout(&window);
@@ -120,5 +169,13 @@ int main(int argc, char **argv) {
 
     outer->addWidget(card);
     window.show();
+#if defined(Q_OS_MACOS)
+    QApplication::processEvents();
+    configureTransparentTitlebar(window);
+    TitlebarDragFilter dragFilter(window);
+    app.installEventFilter(&dragFilter);
+#else
+    window.setWindowTitle("Serenity Examples");
+#endif
     return app.exec();
 }

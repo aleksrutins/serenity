@@ -29,6 +29,7 @@ qt_cc_binary(
         "@rules_qt//:qt_gui",
         "@rules_qt//:qt_widgets",
     ],
+    linkopts = ["-framework", "AppKit", "-lobjc"],
 )
 
 exports_files(["image-missing.svg"])
