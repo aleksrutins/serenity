@@ -60,7 +60,7 @@ archive(
     sha256 = "4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae",
     strip_prefix = "lua-5.4.8",
     build_file_content = """
-load("@rules_cc//cc:defs.bzl", "cc_library")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
 
 cc_library(
     name = "lua",
@@ -69,6 +69,13 @@ cc_library(
     includes = ["src"],
     copts = ["-DLUA_USE_LINUX"],
     linkopts = ["-lm", "-ldl"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "lua-interpreter",
+    srcs = ["src/lua.c"],
+    deps = [":lua"],
     visibility = ["//visibility:public"],
 )
 """,

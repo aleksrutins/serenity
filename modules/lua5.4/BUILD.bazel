@@ -4,3 +4,8 @@ alias(
     name = "lua",
     actual = "@lua//:lua",
 )
+
+alias(
+    name = "lua-interpreter",
+    actual = "@lua//:lua-interpreter",
+)

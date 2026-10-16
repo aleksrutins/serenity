@@ -1,9 +1,9 @@
 # Serenity Lua binding generator
 
-`bindgen.py` reads a C++-oriented binding definition and writes a C++ header containing sol2 registration code.
+`bindgen.lua` reads a C++-oriented binding definition and writes a C++ header containing sol2 registration code. The implementation is split into `lexer.lua`, `parser.lua`, and `emitter.lua`; `bindgen.lua` handles command-line input and output.
 
 ```sh
-python3 bindgen/bindgen.py runtime/types/math.idl -o /tmp/math.hpp
+lua bindgen/bindgen.lua runtime/types/math.idl -o /tmp/math.hpp
 ```
 
 The runtime build runs the generator separately for each IDL in `runtime/types/` and includes the matching generated header. Edit the IDL rather than the generated file.

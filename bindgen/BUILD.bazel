@@ -1,3 +1,8 @@
 package(default_visibility = ["//visibility:public"])
 
-exports_files(["bindgen.py"])
+exports_files(["bindgen.lua", "lexer.lua", "parser.lua", "emitter.lua"])
+
+filegroup(
+    name = "bindgen",
+    srcs = ["bindgen.lua", "lexer.lua", "parser.lua", "emitter.lua"],
+)
