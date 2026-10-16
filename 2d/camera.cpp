@@ -22,6 +22,10 @@ Camera::Camera(Scene *parent, Vec2f screenSize, optional<string> name)
     });
 }
 
+float Camera::x() {
+    return findChild<Transform>()->x();
+}
+
 void Camera::follow(Transform *tr, double lf) {
     following = tr;
     lerpFactor = lf;

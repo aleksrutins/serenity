@@ -28,14 +28,22 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Make example launcher marginally more purdy and marginally less maintainable">
+    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Convert bindgen to lua">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bindgen/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bindgen/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bindgen/bindgen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/lua5.4/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/lua5.4/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/bindings.bzl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/bindings.bzl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2d/camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/camera.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2d/include/serenity/2d/camera.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/include/serenity/2d/camera.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example-launcher/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/BUILD.bazel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/collectible.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/constants.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/dontlookback.lua" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/dontlookback.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/generator.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/player.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/tile.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/types/2d.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/2d.idl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,17 +182,7 @@
     <MESSAGE value="Fill out Lua bindings, add Lua version of dontlookback" />
     <MESSAGE value="Make example launcher work properly with Bazel paths" />
     <MESSAGE value="Make example launcher marginally more purdy and marginally less maintainable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make example launcher marginally more purdy and marginally less maintainable" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/../runtime/main.cpp</url>
-          <line>1</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Convert bindgen to lua" />
+    <option name="LAST_COMMIT_MESSAGE" value="Convert bindgen to lua" />
   </component>
 </project>

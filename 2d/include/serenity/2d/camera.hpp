@@ -13,6 +13,7 @@ class Camera : public serenity::Entity
 
 public:
 	Camera(serenity::Scene *, serenity::math::Vec2f screenSize, std::optional<std::string> = std::nullopt);
+	float x();
 
 	void follow(Transform *tr, double lerpFactor);
 	void follow(serenity::Entity *ent, double lerpFactor);

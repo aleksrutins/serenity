@@ -52,7 +52,6 @@ constexpr Example examples[] = {
     {"Lettuce", SERENITY_LETTUCE_EXECUTABLE, nullptr},
     {"Input", SERENITY_INPUT_EXECUTABLE, nullptr},
     {"Camera", SERENITY_CAMERA_EXECUTABLE, nullptr},
-    {"Don't Look Back", SERENITY_DONTLOOKBACK_EXECUTABLE, nullptr},
     {"Don't Look Back (Lua)", SERENITY_RUNTIME_EXECUTABLE, SERENITY_DONTLOOKBACK_SCRIPT},
     {"Runtime", SERENITY_RUNTIME_EXECUTABLE, SERENITY_RUNTIME_TEST_SCRIPT},
 };

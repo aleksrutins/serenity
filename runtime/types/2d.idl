@@ -27,6 +27,7 @@ class Sprite (twod::Sprite) : Component, Sup {
 
 class Camera (twod::Camera) : Entity, Sup {
     new(Scene *, Vec2f);
+    float x() -> x;
     void follow(twod::Transform *, double) -> follow;
     void follow(Entity *, double) -> follow;
 }

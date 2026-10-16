@@ -16,7 +16,24 @@ using namespace serenity;
 
 int main(int argc, char **argv) {
 	sol::state lua;
-	lua.open_libraries(sol::lib::base);
+	{
+		using sol::lib;
+		lua.open_libraries(
+			lib::base,
+			lib::package,
+			lib::math,
+			lib::bit32,
+			lib::coroutine,
+			lib::count,
+			lib::debug,
+			lib::ffi,
+			lib::io,
+			lib::jit,
+			lib::os,
+			lib::string,
+			lib::table,
+			lib::utf8);
+	}
 
 	{
 		Game app;
