@@ -12,6 +12,7 @@ class Sup {
     children -> sol::overload(&serenity::lua_runtime::children, &serenity::lua_runtime::children_recursive);
     find_child -> sol::overload(&serenity::lua_runtime::find_child, &serenity::lua_runtime::find_child_named, &serenity::lua_runtime::find_child_recursive);
     find_parent -> sol::overload(&serenity::lua_runtime::find_parent, &serenity::lua_runtime::find_parent_named);
+    is_a -> &serenity::lua_runtime::is_a;
 }
 class Scene : Sup {
     new(Sup *);

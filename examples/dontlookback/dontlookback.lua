@@ -5,6 +5,7 @@ local make_tile = require("examples.dontlookback.tile")
 local make_collectible = require("examples.dontlookback.collectible")
 local make_player = require("examples.dontlookback.player")
 local make_generator = require("examples.dontlookback.generator")
+local make_redline = require("examples.dontlookback.redline")
 
 local game = Game.instance
 TimerSystem.new(game)
@@ -20,6 +21,8 @@ local player = make_player(game, sprites, camera, collectibles, constants)
 camera:follow(player, 0.02)
 
 make_generator(game, sprites, constants, collectibles, camera)
+
+make_redline(game)
 
 local renderer = Renderer.new(game, "Don't Look Back", constants.WIDTH, constants.HEIGHT)
 Painter.new(renderer)

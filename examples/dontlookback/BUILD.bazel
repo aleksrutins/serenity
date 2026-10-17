@@ -7,5 +7,6 @@ exports_files([
     "generator.lua",
     "player.lua",
     "tile.lua",
+    "redline.lua",
     "tilemap.png",
 ])

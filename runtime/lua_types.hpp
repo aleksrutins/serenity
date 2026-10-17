@@ -71,4 +71,8 @@ inline auto find_parent_named(Sup* self, sol::this_state state, type_id type, st
 	return push_sup_as(sol::state_view(state), self->findParent(type, std::move(name)), type);
 }
 
+inline auto is_a(Sup* self, sol::this_state state, type_id type) -> sol::object {
+	return sol::make_object(sol::state_view(state), self->isA(type));
+}
+
 } // namespace serenity::lua_runtime

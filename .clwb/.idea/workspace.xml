@@ -28,18 +28,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="whoops, missed some stuff">
+    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="Add imgui, use it for the example launcher">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example-launcher/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/graphics.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/graphics.idl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/usertypes.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/usertypes.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../imgui.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +190,8 @@
     <MESSAGE value="dontlookback: convert fully to Lua, fix generation logic" />
     <MESSAGE value="More codegen" />
     <MESSAGE value="whoops, missed some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="whoops, missed some stuff" />
+    <MESSAGE value="Add imgui, use it for the example launcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add imgui, use it for the example launcher" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
