@@ -10,12 +10,6 @@
 
 using type_id = std::type_index;
 
-#define SUP_ISA_2(me, base) virtual bool isA(type_id const &what) const { \
-		return what == type_id(typeid(me)) || this->base::isA(what); \
-	}
-#define SUP_ISA_1(me) SUP_ISA_2(me, Sup)
-#define SUP_ISA_SELECT(_1, _2, NAME, ...) NAME
-#define SUP_ISA(...) SUP_ISA_SELECT(__VA_ARGS__, SUP_ISA_2, SUP_ISA_1)(__VA_ARGS__)
 
 class Sup {
 	Sup *_parent;

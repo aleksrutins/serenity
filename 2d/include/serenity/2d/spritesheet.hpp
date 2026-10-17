@@ -7,7 +7,7 @@ namespace twod {
 
 class Sprite;
 
-class Spritesheet : public serenity::Component
+class [[sup]] Spritesheet : public serenity::Component
 {
 
 	const char *_image;
@@ -19,7 +19,6 @@ class Spritesheet : public serenity::Component
 	friend class Sprite;
 
 public:
-	SUP_ISA(Spritesheet, serenity::Component)
 
 	Spritesheet(serenity::Entity*, const char *imageName, serenity::math::Vec2f imageSize);
 

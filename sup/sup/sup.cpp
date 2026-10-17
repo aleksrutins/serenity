@@ -4,9 +4,8 @@
 using namespace std;
 
 static set<Sup *> __safe_ptrs;
-class Yggdrasil : public Sup {
+class [[sup]] Yggdrasil : public Sup {
 public:
-    SUP_ISA(Yggdrasil)
 
     virtual optional<string> name() const {return "yggdrasil";}
     static Yggdrasil __;

@@ -14,7 +14,7 @@
 namespace serenity {
 namespace time {
 
-class TimerSystem : public Sup {
+class [[sup]] TimerSystem : public Sup {
 
 	std::thread execution_thread;
 	std::mutex execution_thread_mutex;
@@ -45,7 +45,6 @@ class TimerSystem : public Sup {
 	}
 
 public:
-	SUP_ISA(TimerSystem)
 
 	TimerSystem(Sup *parent) : Sup(parent) {}
 

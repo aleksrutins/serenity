@@ -6,12 +6,11 @@
 namespace serenity {
 namespace twod {
 
-class CollisionBox : public serenity::Component
+class [[sup]] CollisionBox : public serenity::Component
 {
 
 	std::optional<serenity::math::Vec2f> _size;
 public:
-	SUP_ISA(CollisionBox, serenity::Component)
 
 	enum {
 		Solid,

@@ -6,10 +6,9 @@
 namespace serenity {
 namespace twod {
 
-class PlatformerPhysics : public serenity::Component
+class [[sup]] PlatformerPhysics : public serenity::Component
 {
 public:
-	SUP_ISA(PlatformerPhysics, serenity::Component)
 
 	float fallSpeed;
 	float jumpSpeed;

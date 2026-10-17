@@ -1,10 +1,13 @@
 load("@rules_qt//:qt.bzl", "qt_cc_binary")
+load("//codegen:preprocess.bzl", "preprocess_cpp_files")
 
 package(default_visibility = ["//visibility:public"])
 
+LAUNCHER_CPP = preprocess_cpp_files("launcher_cpp", ["main.cpp"])
+
 qt_cc_binary(
     name = "serenity-example-launcher",
-    srcs = ["main.cpp"],
+    srcs = LAUNCHER_CPP,
     copts = [
         "-std=c++20",
         "-DSERENITY_LETTUCE_EXECUTABLE=\\\"$(location //examples/lettuce:serenity-example-lettuce)\\\"",

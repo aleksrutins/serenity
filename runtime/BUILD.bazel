@@ -1,5 +1,6 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary")
 load(":bindings.bzl", "lua_binding")
+load("//codegen:preprocess.bzl", "preprocess_cpp_files")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -13,21 +14,23 @@ lua_binding("2d")
 
 lua_binding("input")
 
+RUNTIME_CPP = preprocess_cpp_files("runtime_cpp", ["main.cpp"])
+RUNTIME_HDRS = preprocess_cpp_files("runtime_hdr", glob(["**/*.hpp"]))
+
 cc_binary(
     name = "serenity",
-    srcs = [
-        "main.cpp",
-        ":2d_binding",
-        ":core_binding",
-        ":graphics_binding",
-        ":input_binding",
-        ":math_binding",
-    ] + glob(["**/*.hpp"]),
+    srcs = RUNTIME_CPP + [
+        ":2d_binding_preprocessed",
+        ":core_binding_preprocessed",
+        ":graphics_binding_preprocessed",
+        ":input_binding_preprocessed",
+        ":math_binding_preprocessed",
+    ] + RUNTIME_HDRS,
     copts = [
         "-Ofast",
         "-std=c++20",
     ],
-    includes = ["."],
+    includes = ["preprocessed"],
     deps = [
         "//2d:serenity-2d",
         "//core:serenity",

@@ -28,10 +28,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="dontlookback: convert fully to Lua, fix generation logic">
+    <list default="true" id="a4e9ca1b-2169-49bd-bd93-ecdcf2e7fe6e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2d/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2d/camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/camera.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2d/include/serenity/2d/camera.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/include/serenity/2d/camera.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2d/include/serenity/2d/collisionbox.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/include/serenity/2d/collisionbox.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2d/include/serenity/2d/painter.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/include/serenity/2d/painter.hpp" afterDir="false" />
@@ -39,39 +38,38 @@
       <change beforePath="$PROJECT_DIR$/../2d/include/serenity/2d/sprite.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/include/serenity/2d/sprite.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2d/include/serenity/2d/spritesheet.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/include/serenity/2d/spritesheet.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2d/include/serenity/2d/transform.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2d/include/serenity/2d/transform.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bindgen/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bindgen/emitter.lua" beforeDir="false" afterPath="$PROJECT_DIR$/../bindgen/emitter.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/BUILD.bazel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/bindgen.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/emitter.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/lexer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bindgen/parser.lua" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../core/BUILD.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/include/serenity/component.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/component.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/include/serenity/entity.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/entity.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/include/serenity/game.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/game.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/include/serenity/math/vectypes.hpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/include/serenity/passthrough.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/passthrough.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/include/serenity/scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/scene.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/include/serenity/time/timersystem.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../core/include/serenity/time/timersystem.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/include/serenity/util/_foreachm.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/include/serenity/util/_foreachm.un.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/include/serenity/util/_vecdef.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../core/include/serenity/util/_vecdef.un.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../example-launcher/BUILD.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/camera/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/camera/BUILD.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/camera/smiley.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/camera/smiley.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/dontlookback.lua" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/dontlookback.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/generator.lua" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/generator.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/dontlookback/player.lua" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/dontlookback/player.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/input/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/input/BUILD.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/input/smiley.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/input/smiley.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/lettuce/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lettuce/BUILD.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../graphics/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/BUILD.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../graphics/include/serenity/graphics/renderer.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../input/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../input/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/SDL3/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/SDL3/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/SDL3_image/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/SDL3_image/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/SDL3_ttf/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/SDL3_ttf/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/catch2/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/catch2/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/gtk/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/gtk/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/sol2/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../modules/sol2/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../modules/sup/BUILD.bazel" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../runtime/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/BUILD.bazel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/2d.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/2d.idl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runtime/types/core.idl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/types/core.idl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../runtime/bindings.bzl" beforeDir="false" afterPath="$PROJECT_DIR$/../runtime/bindings.bzl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sup/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../sup/BUILD.bazel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sup/sup/include/sup.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../sup/sup/include/sup.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sup/sup/sup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../sup/sup/sup.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,35 +100,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Bazel Command.Bazel build example-launcher:serenity-example-launcher.executor": "Run",
-    "Bazel Command.Bazel build sup:sup.executor": "Run",
-    "Bazel Command.Bazel run camera:serenity-example-camera.executor": "Run",
-    "Bazel Command.Bazel run dontlookback:serenity-example-dontlookback.executor": "Run",
-    "Bazel Command.Bazel run example-launcher:serenity-example-launcher.executor": "Run",
-    "Bazel Command.Bazel run input:serenity-example-input.executor": "Run",
-    "Bazel Command.Bazel run runtime:serenity.executor": "Run",
-    "CidrDebugProfileConversion": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "additional_languages_helper_suppressed_python": "true",
-    "bazel.project.detector.is.bazel.project": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "nodejs_package_manager_path": "npm",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Bazel Command.Bazel build example-launcher:serenity-example-launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Bazel Command.Bazel build sup:sup.executor&quot;: &quot;Run&quot;,
+    &quot;Bazel Command.Bazel run camera:serenity-example-camera.executor&quot;: &quot;Run&quot;,
+    &quot;Bazel Command.Bazel run dontlookback:serenity-example-dontlookback.executor&quot;: &quot;Run&quot;,
+    &quot;Bazel Command.Bazel run example-launcher:serenity-example-launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Bazel Command.Bazel run input:serenity-example-input.executor&quot;: &quot;Run&quot;,
+    &quot;Bazel Command.Bazel run runtime:serenity.executor&quot;: &quot;Run&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;additional_languages_helper_suppressed_python&quot;: &quot;true&quot;,
+    &quot;bazel.project.detector.is.bazel.project&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myDebuggerBackend" value="DEBUGPY" />
   </component>

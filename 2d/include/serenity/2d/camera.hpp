@@ -6,13 +6,12 @@ namespace twod {
 
 class Transform;
 
-class Camera : public serenity::Entity
+class [[sup]] Camera : public serenity::Entity
 {
 	double lerpFactor = 0;
 	Transform *following = nullptr;
 
 public:
-	SUP_ISA(Camera, serenity::Entity)
 
 	Camera(serenity::Scene *, serenity::math::Vec2f screenSize, std::optional<std::string> = std::nullopt);
 

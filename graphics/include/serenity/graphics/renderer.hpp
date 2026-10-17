@@ -7,7 +7,7 @@
 namespace serenity {
 namespace graphics {
 
-class Renderer : public Sup {
+class [[sup]] Renderer : public Sup {
     SDL_Window *win;
     SDL_Renderer *ren;
 
@@ -18,7 +18,6 @@ class Renderer : public Sup {
     std::atomic_bool _quit = false;
 
 public:
-	SUP_ISA(Renderer)
 
     Renderer(Sup *parent, const char *title, Uint64 width = 640, Uint64 height = 480)
     	: Sup(parent)

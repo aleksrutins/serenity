@@ -1,10 +1,13 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("//codegen:preprocess.bzl", "preprocess_cpp_files")
 
 package(default_visibility = ["//visibility:public"])
 
+LETTUCE_CPP = preprocess_cpp_files("lettuce_cpp", ["main.cpp"])
+
 cc_binary(
     name = "serenity-example-lettuce",
-    srcs = ["main.cpp"],
+    srcs = LETTUCE_CPP,
     copts = [
         "-DLETTUCE_PATH=\\\"examples/lettuce/lettuce.bmp\\\"",
         "-Ofast",

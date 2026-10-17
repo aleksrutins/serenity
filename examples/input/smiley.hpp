@@ -13,14 +13,13 @@ using namespace serenity::input;
 
 #define SPEED 5
 
-class Smiley : public Entity {
+class [[sup]] Smiley : public Entity {
 	SDL_Texture *tex;
 
 	Vec2f go;
 
 	bool quit = false;
 public:
-	SUP_ISA(Smiley, Entity)
 
 	Smiley(Game *g) : Entity(g, "smiley") {
 		auto tr = new Transform(this);

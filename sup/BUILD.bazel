@@ -1,11 +1,15 @@
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("//codegen:preprocess.bzl", "preprocess_cpp_files")
 
 package(default_visibility = ["//visibility:public"])
 
+SUP_SRCS = preprocess_cpp_files("sup_src", ["sup/sup.cpp"])
+SUP_HDRS = preprocess_cpp_files("sup_hdr", ["sup/include/sup.hpp"])
+
 cc_library(
     name = "sup",
-    srcs = ["sup/sup.cpp"],
-    hdrs = ["sup/include/sup.hpp"],
+    srcs = SUP_SRCS,
+    hdrs = SUP_HDRS,
     copts = ["-std=c++20"],
-    includes = ["sup/include"],
+    includes = ["preprocessed/sup/include"],
 )

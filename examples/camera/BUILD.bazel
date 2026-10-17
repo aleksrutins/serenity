@@ -1,17 +1,21 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("//codegen:preprocess.bzl", "preprocess_cpp_files")
 
 package(default_visibility = ["//visibility:public"])
 
+CAMERA_CPP = preprocess_cpp_files("camera_cpp", ["main.cpp"])
+CAMERA_HDRS = preprocess_cpp_files("camera_hdr", glob(["*.hpp"]))
+
 cc_binary(
     name = "serenity-example-camera",
-    srcs = ["main.cpp"] + glob(["*.hpp"]),
+    srcs = CAMERA_CPP + CAMERA_HDRS,
     copts = [
         "-DSMILEY_PATH=\\\"examples/camera/smiley.bmp\\\"",
         "-Ofast",
         "-std=c++20",
     ],
     data = ["smiley.bmp"],
-    includes = ["."],
+    includes = ["preprocessed"],
     deps = [
         "//2d:serenity-2d",
         "//core:serenity",

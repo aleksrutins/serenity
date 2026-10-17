@@ -7,9 +7,8 @@ namespace serenity {
 
 class System;
 
-class Game : public Scene {
+class [[sup]] Game : public Scene {
 public:
-	SUP_ISA(Game, Scene)
 
 	explicit Game(Sup *parent = nullptr) : Scene(parent) {}
 };

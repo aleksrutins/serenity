@@ -23,9 +23,8 @@ inline auto rectangle(serenity::math::Vec2f pos, serenity::math::Vec2f size) -> 
     return rectangle(pos[x], pos[y], size[x], size[y]);
 }
 
-class Painter : public Sup {
+class [[sup]] Painter : public Sup {
 public:
-	SUP_ISA(Painter)
 
 	Painter(serenity::graphics::Renderer *);
 

@@ -8,7 +8,7 @@
 
 namespace serenity {
 
-class Component : public Sup {
+class [[sup]] Component : public Sup {
 protected:
 	auto game() const -> Game* { return findParent<Game>(); }
 
@@ -20,7 +20,6 @@ protected:
 	}
 
 public:
-	SUP_ISA(Component)
 
 	Component(Sup *parent) : Sup(parent) {}
 

@@ -1,22 +1,38 @@
 load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//codegen:preprocess.bzl", "preprocess_cpp_files")
 
 package(default_visibility = ["//visibility:public"])
 
+# The dimensions are build configuration inputs to vectorgen.
+VECTOR_DIMENSIONS = "2,3,4"
+
+genrule(
+    name = "vectypes",
+    outs = ["preprocessed/include/serenity/math/vectypes.hpp"],
+    tools = [
+        "//codegen:vectorgen.lua",
+        "//modules/lua5.4:lua-interpreter",
+    ],
+    cmd = "$(location //modules/lua5.4:lua-interpreter) $(location //codegen:vectorgen.lua) --dimensions " + VECTOR_DIMENSIONS + " -o $@",
+)
+
+CORE_SRCS = preprocess_cpp_files("serenity_src", [
+    "component.cpp",
+    "entity.cpp",
+    "game.cpp",
+    "scene.cpp",
+    "system.cpp",
+])
+CORE_HDRS = preprocess_cpp_files("serenity_hdr", glob(["include/**/*.hpp"], exclude = ["include/serenity/math/vectypes.hpp"]))
+
 cc_library(
     name = "serenity",
-    srcs = [
-        "component.cpp",
-        "entity.cpp",
-        "game.cpp",
-        "scene.cpp",
-        "system.cpp",
-    ],
-    hdrs = glob(["include/**/*.hpp"]),
+    srcs = CORE_SRCS,
+    hdrs = CORE_HDRS + [":vectypes"],
     copts = [
-        "-Icore/include",
         "-Ofast",
         "-std=c++20",
     ],
-    includes = ["include"],
+    includes = ["preprocessed/include"],
     deps = ["//sup"],
 )
