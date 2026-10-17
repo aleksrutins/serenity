@@ -5,10 +5,11 @@ return function(game, sprites, constants, collectibles, camera)
 	local random_state = 1
 	local make_tile = require("examples.dontlookback.tile")
 	local make_collectible = require("examples.dontlookback.collectible")
+	local camera_transform = camera:find_child(Transform.class)
 	local generator = Entity.new(game)
 
 	OnTick.new(generator, OnTick.none, function()
-		local required = (camera:x() + constants.WIDTH) - (generated_to + constants.TILE_SIZE) + 64
+		local required = (camera_transform:x() + constants.WIDTH) - (generated_to + constants.TILE_SIZE) + 64
 		local distance = math.floor(required / constants.TILE_SIZE + 0.5) * constants.TILE_SIZE
 		if distance > 0 then
 			for x = 0, distance - constants.TILE_SIZE, constants.TILE_SIZE do

@@ -20,6 +20,8 @@ class Smiley : public Entity {
 
 	bool quit = false;
 public:
+	SUP_ISA(Smiley, Entity)
+
 	Smiley(Game *g) : Entity(g, "smiley") {
 		auto tr = new Transform(this);
 

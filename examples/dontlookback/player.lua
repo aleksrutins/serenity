@@ -1,6 +1,7 @@
 return function(game, sprites, camera, collectibles, constants)
 	local player = Entity.new(game, "smiley")
 	sprites:load(player, vec.vec2i(0, 5))
+
 	local transform = Transform.new(player)
 	local player_box = CollisionBox.new(player, CollisionBox.DoNotAvoid)
 	local physics = PlatformerPhysics.new(player)

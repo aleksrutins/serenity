@@ -20,6 +20,8 @@ class Transform : public serenity::Component
 
 	std::vector<decltype(_position)> _history;
 public:
+	SUP_ISA(Transform, serenity::Component)
+
 	Transform(serenity::Entity *e, decltype(_position) initialPos = serenity::math::vec2(0, 0)) : Component(e), _position(initialPos) {}
 
 	auto screenPosition() {return screenPosition(cam());};

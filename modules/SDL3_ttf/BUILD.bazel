@@ -4,21 +4,21 @@ package(default_visibility = ["//visibility:public"])
 
 cmake(
     name = "SDL3_ttf",
-    lib_source = "@sdl3_ttf_src//:all",
     cache_entries = {
         "SDLTTF_VENDORED": "OFF",
         "SDLTTF_TESTS": "OFF",
     },
     env = {"CFLAGS": "-std=gnu17"},
+    lib_source = "@sdl3_ttf_src//:all",
     out_include_dir = "include",
     out_interface_libs = select({
         "@bazel_tools//src/conditions:windows": ["SDL3_ttf.lib"],
-        "//conditions:default": []
+        "//conditions:default": [],
     }),
     out_shared_libs = select({
         "@bazel_tools//src/conditions:darwin": ["libSDL3_ttf.0.dylib"],
         "@bazel_tools//src/conditions:linux": ["libSDL3_ttf.so.0"],
-        "@bazel_tools//src/conditions:windows": ["SDL3_ttf.dll"]
+        "@bazel_tools//src/conditions:windows": ["SDL3_ttf.dll"],
     }),
-    deps = ["//modules/SDL3:SDL3"],
+    deps = ["//modules/SDL3"],
 )

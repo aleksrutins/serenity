@@ -8,6 +8,8 @@ class Scene;
 class Entity : public Sup {
 	std::optional<std::string> _name;
 public:
+	SUP_ISA(Entity)
+
 	Entity(Scene *parent, std::optional<std::string> name = std::nullopt);
 
 	void init(Sup *);

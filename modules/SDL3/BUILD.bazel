@@ -4,21 +4,21 @@ package(default_visibility = ["//visibility:public"])
 
 cmake(
     name = "SDL3",
-    lib_source = "@sdl3_src//:all",
     cache_entries = {
         "SDL_TESTS": "OFF",
         "SDL_EXAMPLES": "OFF",
         "SDL_INSTALL_TESTS": "OFF",
     },
     env = {"CFLAGS": "-std=gnu17"},
+    lib_source = "@sdl3_src//:all",
     out_include_dir = "include",
     out_interface_libs = select({
         "@bazel_tools//src/conditions:windows": ["SDL3.lib"],
-        "//conditions:default": []
+        "//conditions:default": [],
     }),
     out_shared_libs = select({
         "@bazel_tools//src/conditions:darwin": ["libSDL3.0.dylib"],
         "@bazel_tools//src/conditions:linux": ["libSDL3.so.0"],
-        "@bazel_tools//src/conditions:windows": ["SDL3.dll"]
+        "@bazel_tools//src/conditions:windows": ["SDL3.dll"],
     }),
 )

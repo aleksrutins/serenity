@@ -19,6 +19,7 @@ class Sprite : public serenity::Component
 	friend class Spritesheet;
 
 public:
+	SUP_ISA(Sprite, serenity::Component)
 
 	static Sprite *load(serenity::Entity*, const char *imageName, serenity::math::Vec2f size);
 

@@ -25,6 +25,8 @@ inline auto rectangle(serenity::math::Vec2f pos, serenity::math::Vec2f size) -> 
 
 class Painter : public Sup {
 public:
+	SUP_ISA(Painter)
+
 	Painter(serenity::graphics::Renderer *);
 
 	auto loadImage(const char *path) -> SDL_Texture*;

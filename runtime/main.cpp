@@ -3,6 +3,7 @@
 #include <serenity/input.hpp>
 #include <serenity/graphics.hpp>
 #include <serenity/2d.hpp>
+#include "lua_types.hpp"
 #include <sol/sol.hpp>
 #include <SDL3/SDL.h>
 

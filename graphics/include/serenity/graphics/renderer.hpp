@@ -18,6 +18,8 @@ class Renderer : public Sup {
     std::atomic_bool _quit = false;
 
 public:
+	SUP_ISA(Renderer)
+
     Renderer(Sup *parent, const char *title, Uint64 width = 640, Uint64 height = 480)
     	: Sup(parent)
     	, title(title)

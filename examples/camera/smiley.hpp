@@ -16,6 +16,8 @@ using namespace serenity::input;
 
 class Smiley : public Entity {
 public:
+	SUP_ISA(Smiley, Entity)
+
 	Smiley(Game *g) : Entity(g, "smiley") {
 		auto tr = new Transform(this);
 		new OnTick(this, OnTick::none, [this, tr](TimerSystem *) {

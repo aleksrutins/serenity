@@ -45,6 +45,8 @@ class TimerSystem : public Sup {
 	}
 
 public:
+	SUP_ISA(TimerSystem)
+
 	TimerSystem(Sup *parent) : Sup(parent) {}
 
 	virtual ~TimerSystem() {

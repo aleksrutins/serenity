@@ -24,5 +24,9 @@ cc_library(
         "-DQT_GUI_LIB",
         "-DQT_CORE_LIB",
     ],
-    linkopts = ["-lQt6Widgets", "-lQt6Gui", "-lQt6Core"],
+    linkopts = [
+        "-lQt6Widgets",
+        "-lQt6Gui",
+        "-lQt6Core",
+    ],
 )

@@ -9,6 +9,8 @@ class System;
 
 class Game : public Scene {
 public:
+	SUP_ISA(Game, Scene)
+
 	explicit Game(Sup *parent = nullptr) : Scene(parent) {}
 };
 

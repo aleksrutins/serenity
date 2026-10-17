@@ -7,7 +7,7 @@ local make_player = require("examples.dontlookback.player")
 local make_generator = require("examples.dontlookback.generator")
 
 local game = Game.instance
-local timer = TimerSystem.new(game)
+TimerSystem.new(game)
 local camera = Camera.new(game, vec.vec2f(constants.WIDTH, constants.HEIGHT))
 local sprites = Spritesheet.for_scene(game, constants.TILEMAP, vec.vec2f(constants.TILE_SIZE, constants.TILE_SIZE))
 
@@ -30,5 +30,5 @@ OnTick.new(player, OnTick.none, function()
 	end
 end)
 
-timer:start120()
+game:find_child(TimerSystem.class):start120()
 renderer:run()

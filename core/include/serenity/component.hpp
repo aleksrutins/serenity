@@ -20,6 +20,8 @@ protected:
 	}
 
 public:
+	SUP_ISA(Component)
+
 	Component(Sup *parent) : Sup(parent) {}
 
 	virtual void init(Sup *) {};

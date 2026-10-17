@@ -12,6 +12,11 @@ end
 local function class_method_pointer(ref, method)
     return "static_cast<" .. method.ret .. " (" .. ref .. "::*) (" .. join(method.args) .. ")>(&" .. ref .. "::" .. method.alias .. ")"
 end
+local function is_sup_type(item)
+    if item.name == "Sup" then return true end
+    for _, base in ipairs(item.bases or {}) do if base == "Sup" then return true end end
+    return false
+end
 local function emit_namespace(item, out)
     out[#out + 1] = "lua[" .. quote(item.name) .. "] = lua.create_table();"
     local groups, order = {}, {}
@@ -55,6 +60,8 @@ local function emit_class(item, out)
     for _, name in ipairs(method_order) do args[#args + 1] = quote(name) .. ", " .. overload(methods[name]) end
     if #item.bases > 0 then args[#args + 1] = "sol::base_classes, sol::bases<" .. join(item.bases) .. ">()" end
     out[#out + 1] = "lua.new_usertype<" .. item.cpp .. ">(" .. quote(item.name) .. (#args > 0 and ",\n    " .. join(args, ",\n    ") or "") .. ");"
+    out[#out + 1] = "lua[" .. quote(item.name) .. "][\"class\"] = type_id(typeid(" .. item.cpp .. "));"
+    if is_sup_type(item) then out[#out + 1] = "serenity::lua_runtime::register_sup_type<" .. item.cpp .. ">(lua);" end
     for _, member in ipairs(item.body) do if member.kind == "static" then out[#out + 1] = "lua[" .. quote(item.name) .. "][" .. quote(member.name) .. "] = " .. member.expr .. ";" end end
 end
 local function emit(items)
@@ -64,7 +71,10 @@ local function emit(items)
         elseif item.kind == "using" then out[#out + 1] = "using namespace " .. item.name .. ";"
         elseif item.kind == "namespace" then emit_namespace(item, out)
         elseif item.kind == "global" then emit_global(item, out)
-        elseif item.kind == "opaque" then out[#out + 1] = "lua.new_usertype<" .. item.cpp .. ">( " .. quote(item.name) .. ");"
+        elseif item.kind == "opaque" then
+            out[#out + 1] = "lua.new_usertype<" .. item.cpp .. ">( " .. quote(item.name) .. ");"
+            out[#out + 1] = "lua[" .. quote(item.name) .. "][\"class\"] = type_id(typeid(" .. item.cpp .. "));"
+            if item.name == "Sup" then out[#out + 1] = "serenity::lua_runtime::register_sup_type<" .. item.cpp .. ">(lua);" end
         elseif item.kind == "class" then emit_class(item, out) end
     end
     return table.concat(out, "\n\n") .. "\n"

@@ -5,8 +5,16 @@ package(default_visibility = ["//visibility:public"])
 cc_binary(
     name = "serenity-example-lettuce",
     srcs = ["main.cpp"],
-    includes = ["."],
-    copts = ["-DLETTUCE_PATH=\\\"examples/lettuce/lettuce.bmp\\\"", "-Ofast", "-std=c++20"],
-    deps = ["//2d:serenity-2d", "//core:serenity", "//graphics:serenity-graphics"],
+    copts = [
+        "-DLETTUCE_PATH=\\\"examples/lettuce/lettuce.bmp\\\"",
+        "-Ofast",
+        "-std=c++20",
+    ],
     data = ["lettuce.bmp"],
+    includes = ["."],
+    deps = [
+        "//2d:serenity-2d",
+        "//core:serenity",
+        "//graphics:serenity-graphics",
+    ],
 )

@@ -10,6 +10,8 @@ class Passthrough : public serenity::Component
     std::function<void(S*)> _init;
     std::function<void(S*)> _update;
 public:
+	SUP_ISA(Passthrough<S>, Component)
+
     Passthrough(Entity *e, decltype(_init) init, decltype(_update) update)
     	: Component(e)
     	, _init(init)

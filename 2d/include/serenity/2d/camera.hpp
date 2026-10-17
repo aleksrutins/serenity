@@ -12,8 +12,9 @@ class Camera : public serenity::Entity
 	Transform *following = nullptr;
 
 public:
+	SUP_ISA(Camera, serenity::Entity)
+
 	Camera(serenity::Scene *, serenity::math::Vec2f screenSize, std::optional<std::string> = std::nullopt);
-	float x();
 
 	void follow(Transform *tr, double lerpFactor);
 	void follow(serenity::Entity *ent, double lerpFactor);
