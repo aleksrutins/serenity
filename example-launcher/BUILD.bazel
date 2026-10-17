@@ -1,45 +1,30 @@
-load("@rules_qt//:qt.bzl", "qt_cc_binary")
-load("//codegen:preprocess.bzl", "preprocess_cpp_files")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
 
-package(default_visibility = ["//visibility:public"])
-
-LAUNCHER_CPP = preprocess_cpp_files("launcher_cpp", ["main.cpp"])
-
-qt_cc_binary(
+sh_binary(
     name = "serenity-example-launcher",
-    srcs = LAUNCHER_CPP,
-    copts = [
-        "-std=c++20",
-        "-DSERENITY_LETTUCE_EXECUTABLE=\\\"$(location //examples/lettuce:serenity-example-lettuce)\\\"",
-        "-DSERENITY_INPUT_EXECUTABLE=\\\"$(location //examples/input:serenity-example-input)\\\"",
-        "-DSERENITY_CAMERA_EXECUTABLE=\\\"$(location //examples/camera:serenity-example-camera)\\\"",
-        "-DSERENITY_RUNTIME_EXECUTABLE=\\\"$(location //runtime:serenity)\\\"",
-        "-DSERENITY_DONTLOOKBACK_SCRIPT=\\\"$(location //examples/dontlookback:dontlookback.lua)\\\"",
-        "-DSERENITY_RUNTIME_TEST_SCRIPT=\\\"$(location //runtime:runtime_test.lua)\\\"",
-    ],
+    srcs = ["run_launcher.sh"],
     data = [
+        "launcher.lua",
         "//examples/camera:serenity-example-camera",
+        "//examples/camera:smiley.bmp",
         "//examples/dontlookback:collectible.lua",
         "//examples/dontlookback:constants.lua",
         "//examples/dontlookback:dontlookback.lua",
         "//examples/dontlookback:generator.lua",
         "//examples/dontlookback:player.lua",
         "//examples/dontlookback:tile.lua",
+        "//examples/dontlookback:tilemap.png",
         "//examples/input:serenity-example-input",
+        "//examples/input:smiley.bmp",
+        "//examples/lettuce:lettuce.bmp",
         "//examples/lettuce:serenity-example-lettuce",
         "//runtime:runtime_test.lua",
         "//runtime:serenity",
     ],
-    linkopts = [
-        "-framework",
-        "AppKit",
-        "-lobjc",
-    ],
-    deps = [
-        "@rules_qt//:qt_core",
-        "@rules_qt//:qt_gui",
-        "@rules_qt//:qt_widgets",
-    ],
 )
 
-exports_files(["image-missing.svg"])
+exports_files([
+    "image-missing.svg",
+    "launcher.lua",
+    "run_launcher.sh",
+])

@@ -11,6 +11,24 @@ class Renderer (graphics::Renderer) : Sup {
     new(Sup *, const char *, Uint64, Uint64);
     void run() -> run;
     void quit() -> quit;
+    init_imgui -> [](graphics::Renderer *r){
+        auto *window = r->window();
+        auto *renderer = r->renderer();
+        IMGUI_CHECKVERSION();
+        ImGui::CreateContext();
+        const bool initialized = ImGui_ImplSDL3_InitForSDLRenderer(window, renderer) && ImGui_ImplSDLRenderer3_Init(renderer);
+        if(initialized) {
+            r->setEventHandler([](SDL_Event *event) { ImGui_ImplSDL3_ProcessEvent(event); });
+        }
+        return initialized;
+    };
+
+    render_imgui_frame -> [](graphics::Renderer *r){
+      auto *renderer = r->renderer();
+      ImGui::Render();
+      SDL_SetRenderDrawColor(renderer, 23, 26, 25, 255);
+      ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), renderer);
+    };
 }
 class CustomRender (graphics::CustomRender) : Component, Sup {
     new(Entity *, std::function<void(graphics::Renderer *)>, std::function<void(graphics::Renderer *)>);

@@ -28,7 +28,10 @@ void Renderer::run() {
 
     SDL_Event e;
     while(!_quit.load()) {
-        while(SDL_PollEvent(&e)) if(e.type == SDL_EVENT_QUIT) _quit.store(true);
+        while(SDL_PollEvent(&e)) {
+            if(eventHandler) eventHandler(&e);
+            if(e.type == SDL_EVENT_QUIT) _quit.store(true);
+        }
 
         SDL_RenderClear(ren);
         {

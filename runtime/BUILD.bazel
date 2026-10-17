@@ -1,6 +1,6 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary")
-load(":bindings.bzl", "lua_binding")
 load("//codegen:preprocess.bzl", "preprocess_cpp_files")
+load(":bindings.bzl", "lua_binding")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -14,8 +14,17 @@ lua_binding("2d")
 
 lua_binding("input")
 
-RUNTIME_CPP = preprocess_cpp_files("runtime_cpp", ["main.cpp"])
-RUNTIME_HDRS = preprocess_cpp_files("runtime_hdr", glob(["**/*.hpp"]))
+lua_binding("gui")
+
+RUNTIME_CPP = preprocess_cpp_files(
+    "runtime_cpp",
+    ["main.cpp"],
+)
+
+RUNTIME_HDRS = preprocess_cpp_files(
+    "runtime_hdr",
+    glob(["**/*.hpp"]),
+)
 
 cc_binary(
     name = "serenity",
@@ -23,6 +32,7 @@ cc_binary(
         ":2d_binding_preprocessed",
         ":core_binding_preprocessed",
         ":graphics_binding_preprocessed",
+        ":gui_binding_preprocessed",
         ":input_binding_preprocessed",
         ":math_binding_preprocessed",
     ] + RUNTIME_HDRS,
@@ -39,6 +49,7 @@ cc_binary(
         "//modules/SDL3",
         "//modules/lua5.4:lua",
         "//modules/sol2",
+        "@imgui",
     ],
 )
 

@@ -1,0 +1,65 @@
+include <SDL3/SDL.h>;
+include <imgui.h>;
+include <backends/imgui_impl_sdl3.h>;
+include <backends/imgui_impl_sdlrenderer3.h>;
+include <tuple>;
+include <cstdint>;
+
+namespace sdl3 {
+    bool init_video() -> []( ){ return SDL_Init(SDL_INIT_VIDEO); };
+    std::tuple<std::uintptr_t, std::uintptr_t> create_window_renderer(const char *, int, int) -> [](const char *title, int width, int height){
+        SDL_Window *window = nullptr;
+        SDL_Renderer *renderer = nullptr;
+        SDL_CreateWindowAndRenderer(title, width, height, SDL_WINDOW_RESIZABLE, &window, &renderer);
+        return std::make_tuple(reinterpret_cast<std::uintptr_t>(window), reinterpret_cast<std::uintptr_t>(renderer));
+    };
+    bool poll_events() -> [](){
+        SDL_Event event;
+        bool quit = false;
+        while(SDL_PollEvent(&event)) {
+            ImGui_ImplSDL3_ProcessEvent(&event);
+            if(event.type == SDL_EVENT_QUIT) quit = true;
+        }
+        return quit;
+    };
+    bool init_imgui(std::uintptr_t, std::uintptr_t) -> [](std::uintptr_t window_handle, std::uintptr_t renderer_handle){
+        auto *window = reinterpret_cast<SDL_Window *>(window_handle);
+        auto *renderer = reinterpret_cast<SDL_Renderer *>(renderer_handle);
+        IMGUI_CHECKVERSION();
+        ImGui::CreateContext();
+        return ImGui_ImplSDL3_InitForSDLRenderer(window, renderer) && ImGui_ImplSDLRenderer3_Init(renderer);
+    };
+    void begin_imgui_frame() -> [](){
+        ImGui_ImplSDLRenderer3_NewFrame();
+        ImGui_ImplSDL3_NewFrame();
+        ImGui::NewFrame();
+    };
+    void render_imgui_frame(std::uintptr_t) -> [](std::uintptr_t renderer_handle){
+        auto *renderer = reinterpret_cast<SDL_Renderer *>(renderer_handle);
+        ImGui::Render();
+        SDL_SetRenderDrawColor(renderer, 23, 26, 25, 255);
+        SDL_RenderClear(renderer);
+        ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), renderer);
+        SDL_RenderPresent(renderer);
+    };
+    void shutdown_imgui(std::uintptr_t, std::uintptr_t) -> [](std::uintptr_t window_handle, std::uintptr_t renderer_handle){
+        auto *window = reinterpret_cast<SDL_Window *>(window_handle);
+        auto *renderer = reinterpret_cast<SDL_Renderer *>(renderer_handle);
+        ImGui_ImplSDLRenderer3_Shutdown();
+        ImGui_ImplSDL3_Shutdown();
+        ImGui::DestroyContext();
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+    };
+}
+
+namespace imgui {
+    void style_colors_dark() -> [](){ ImGui::StyleColorsDark(); };
+    bool begin(const char *) -> [](const char *title){ return ImGui::Begin(title); };
+    void end_window() -> [](){ ImGui::End(); };
+    void text(const char *) -> [](const char *value){ ImGui::TextUnformatted(value); };
+    bool button(const char *) -> [](const char *label){ return ImGui::Button(label, ImVec2(-1, 42)); };
+    void separator() -> [](){ ImGui::Separator(); };
+    void spacing() -> [](){ ImGui::Spacing(); };
+}

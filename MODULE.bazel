@@ -6,23 +6,8 @@ module(
 bazel_dep(name = "apple_support", version = "2.10.1")
 bazel_dep(name = "rules_cc", version = "0.2.26")
 bazel_dep(name = "rules_foreign_cc", version = "0.16.0")
-bazel_dep(name = "rules_qt", version = "0.0.7")
+bazel_dep(name = "rules_shell", version = "0.8.0")
 bazel_dep(name = "platforms", version = "1.1.0")
-
-qt = use_extension("@rules_qt//extension:qt.bzl", "fetch")
-qt.install(
-    name = "qt_mac_aarch64",
-    build_file = "@rules_qt//extension:qt/6.8.3/mac_aarch64.BUILD",
-    os = "macos",
-    version = "6.8.3",
-)
-qt.install(
-    name = "qt_mac_x86_64",
-    build_file = "@rules_qt//extension:qt/6.8.3/mac_aarch64.BUILD",
-    os = "macos",
-    version = "6.8.3",
-)
-use_repo(qt, "qt_mac_aarch64", "qt_mac_x86_64")
 
 register_toolchains("@rules_foreign_cc//toolchains:preinstalled_pkgconfig_toolchain")
 
@@ -100,6 +85,24 @@ cc_library(
     ],
     strip_prefix = "sol2-3.3.0",
     urls = ["https://github.com/ThePhD/sol2/archive/refs/tags/v3.3.0.tar.gz"],
+)
+
+archive(
+    name = "imgui",
+    build_file_content = """
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "imgui",
+    srcs = glob(["*.cpp", "backends/imgui_impl_sdl3.cpp", "backends/imgui_impl_sdlrenderer3.cpp"]),
+    hdrs = glob(["*.h", "backends/imgui_impl_sdl3.h", "backends/imgui_impl_sdlrenderer3.h"]),
+    includes = ["."],
+    deps = ["@//modules/SDL3"],
+    visibility = ["//visibility:public"],
+)
+""",
+    strip_prefix = "imgui-1.91.9b",
+    urls = ["https://github.com/ocornut/imgui/archive/refs/tags/v1.91.9b.tar.gz"],
 )
 
 archive(

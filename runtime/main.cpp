@@ -6,6 +6,11 @@
 #include "lua_types.hpp"
 #include <sol/sol.hpp>
 #include <SDL3/SDL.h>
+#include <imgui.h>
+#include <backends/imgui_impl_sdl3.h>
+#include <backends/imgui_impl_sdlrenderer3.h>
+#include <cstdint>
+#include <tuple>
 
 #include <string>
 #include <iostream>

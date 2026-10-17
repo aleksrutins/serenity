@@ -1,6 +1,8 @@
 #pragma once
 
 #include <atomic>
+#include <functional>
+#include <utility>
 #include <sup.hpp>
 #include <SDL3/SDL.h>
 
@@ -16,6 +18,7 @@ class [[sup]] Renderer : public Sup {
     Uint64 height;
 
     std::atomic_bool _quit = false;
+    std::function<void(SDL_Event *)> eventHandler;
 
 public:
 
@@ -25,7 +28,11 @@ public:
     	, width(width)
     	, height(height) {}
 
-    inline auto renderer() {return ren;}
+	auto *window() {return win;}
+    auto *renderer() {return ren;}
+    void setEventHandler(std::function<void(SDL_Event *)> handler) {
+        eventHandler = std::move(handler);
+    }
     void run();
     void quit();
 };
