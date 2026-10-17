@@ -1,0 +1,29 @@
+package(default_visibility = ["//visibility:public"])
+
+exports_files([
+    "bindgen.lua",
+    "lexer.lua",
+    "parser.lua",
+    "emitter.lua",
+    "vectorgen.lua",
+    "sup_preprocess.lua",
+    "preprocess.bzl",
+])
+
+filegroup(
+    name = "bindgen",
+    srcs = [
+        "bindgen.lua",
+        "emitter.lua",
+        "lexer.lua",
+        "parser.lua",
+    ],
+)
+
+filegroup(
+    name = "generators",
+    srcs = [
+        "vectorgen.lua",
+        "sup_preprocess.lua",
+    ],
+)
